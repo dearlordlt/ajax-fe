@@ -1,12 +1,28 @@
-<!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
-  <div class="navbar-nav">
-    <a class="nav-item nav-link" routerLink="/">Home</a>
-    <a class="nav-item nav-link" (click)="logout()">Logout</a>
-  </div>
-</nav>
-
-<!-- main app container -->
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="'navigation'" mode="'over'" opened="false">
+    <mat-nav-list class="navigation-list">
+      <a class="navigation-item" mat-list-item routerLink="/" routerLinkActive="active">
+        <mat-icon class="material-icons">home</mat-icon>
+        <span class="navigation-item-label">Home</span>
+      </a>
+      <mat-divider class="navigation-divider"></mat-divider>
+      <a class="navigation-item" mat-list-item routerLink="/npc" routerLinkActive="active">
+        <mat-icon class="material-icons">pets</mat-icon>
+        <span class="navigation-item-label">NPC generator</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="sidenav-content">
+    <mat-toolbar class="sidenav-content-toolbar" color="primary">
+      <button mat-icon-button class="menu-button" type="button" aria-label="Toggle sidenav" (tap)="drawer.toggle()">
+        <i class="material-icons">menu</i>
+      </button>
+      <span class="toolbar-spacer"></span>
+      <span class="filler">
+        <button mat-raised-button color="primary" (click)="logout()">Logout</button>
+      </span>
+    </mat-toolbar>
+    <router-outlet fxFlex></router-outlet>
+    <!-- <app-footer></app-footer> -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
