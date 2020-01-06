@@ -19,14 +19,16 @@ import {
   MatDialogModule,
   MatTableModule,
   MatMenuModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
 } from '@angular/material';
+import { RandomNpcComponent } from './random-npc/random-npc.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    RandomNpcComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +47,7 @@ import {
     MatDialogModule,
     MatTableModule,
     MatMenuModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
