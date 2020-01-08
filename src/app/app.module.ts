@@ -24,13 +24,15 @@ import {
 } from '@angular/material';
 import { RandomNpcComponent } from './_components/random-npc/random-npc.component';
 import { AppHttpInterceptor } from './http.interceptor';
+import { AdminComponent } from './_components/admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RandomNpcComponent
+    RandomNpcComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
