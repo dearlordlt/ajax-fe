@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Npc } from '../_types';
+import { Npc } from '../../_types';
 
 @Component({
   selector: 'app-random-npc',

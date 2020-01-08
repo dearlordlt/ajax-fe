@@ -4,9 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './_components/home/home.component';
+import { LoginComponent } from './_components/login/login.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   MatToolbarModule,
@@ -20,8 +20,10 @@ import {
   MatTableModule,
   MatMenuModule,
   MatProgressSpinnerModule,
+  MatSnackBarModule,
 } from '@angular/material';
-import { RandomNpcComponent } from './random-npc/random-npc.component';
+import { RandomNpcComponent } from './_components/random-npc/random-npc.component';
+import { AppHttpInterceptor } from './http.interceptor';
 
 @NgModule({
   declarations: [
@@ -48,8 +50,11 @@ import { RandomNpcComponent } from './random-npc/random-npc.component';
     MatTableModule,
     MatMenuModule,
     MatProgressSpinnerModule,
+    MatSnackBarModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
