@@ -21,6 +21,8 @@ import {
   MatMenuModule,
   MatProgressSpinnerModule,
   MatSnackBarModule,
+  MatCheckboxModule,
+  MatGridListModule,
 } from '@angular/material';
 import { RandomNpcComponent } from './_components/random-npc/random-npc.component';
 import { AppHttpInterceptor } from './http.interceptor';
@@ -53,6 +55,8 @@ import { AdminComponent } from './_components/admin/admin.component';
     MatMenuModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
+    MatCheckboxModule,
+    MatGridListModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true
