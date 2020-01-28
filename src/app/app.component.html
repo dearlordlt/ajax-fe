@@ -1,15 +1,15 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button mat-raised (click)="navigate('/')" routerLinkActive="active">
+    <button mat-icon-button (click)="navigate('/')" routerLinkActive="active">
       <mat-icon class="material-icons" aria-label="Home">home</mat-icon>
     </button>
-    <button mat-raised (click)="navigate('/random-npc')" routerLinkActive="active">
+    <button mat-icon-button (click)="navigate('/random-npc')" routerLinkActive="active">
       <mat-icon class="material-icons" aria-label="NPC generator">pets</mat-icon>
     </button>
-    <button mat-raised (click)="navigate('/admin')" routerLinkActive="active">
+    <button mat-icon-button (click)="navigate('/admin')" routerLinkActive="active">
       <mat-icon class="material-icons" aria-label="Admin">security</mat-icon>
     </button>
-    <button mat-raised (click)="logout()" routerLinkActive="active">
+    <button mat-icon-button (click)="logout()" routerLinkActive="active">
       <mat-icon class="material-icons" aria-label="Logout">power_off</mat-icon>
     </button>
   </mat-toolbar-row>
