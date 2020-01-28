@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Npc } from '../../_types';
+import { INpc } from '../../_types';
 import { WEAPONS } from '../_data/weapons';
 import { BEGINNING, MIDDLE, ENDING } from '../_data/names';
 import { MatTableDataSource } from '@angular/material';
@@ -11,7 +11,7 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class RandomNpcComponent implements OnInit {
 
-  npcList: Npc[] = [];
+  npcList: INpc[] = [];
   displayedColumns: string[] = [
     'id',
     'name',
@@ -45,8 +45,8 @@ export class RandomNpcComponent implements OnInit {
     }
   }
 
-  randomNpc(): Npc {
-    const newNpc: Npc = {
+  randomNpc(): INpc {
+    const newNpc: INpc = {
       id: this.nextId,
       name: this.getRandomName(),
       attack: this.getRnd(10, 13 + this.toughness),
