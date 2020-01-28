@@ -27,6 +27,7 @@ import {
 import { RandomNpcComponent } from './_components/random-npc/random-npc.component';
 import { AppHttpInterceptor } from './http.interceptor';
 import { AdminComponent } from './_components/admin/admin.component';
+import { SkillsComponent } from './_components/skills/skills.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AdminComponent } from './_components/admin/admin.component';
     HomeComponent,
     LoginComponent,
     RandomNpcComponent,
-    AdminComponent
+    AdminComponent,
+    SkillsComponent
   ],
   imports: [
     BrowserModule,
