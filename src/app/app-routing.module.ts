@@ -6,6 +6,7 @@ import { LoginComponent } from './_components/login/login.component';
 import { RandomNpcComponent } from './_components/random-npc/random-npc.component';
 import { Role } from './_models/';
 import { AdminComponent } from './_components/admin/admin.component';
+import { SkillsComponent } from './_components/skills/skills.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,11 @@ const routes: Routes = [
   {
     path: 'random-npc',
     component: RandomNpcComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'skills',
+    component: SkillsComponent,
     canActivate: [AuthGuard],
   },
   {

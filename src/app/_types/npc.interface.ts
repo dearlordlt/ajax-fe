@@ -1,4 +1,4 @@
-export interface Npc {
+export interface INpc {
     id: number;
     name: string;
     attack: number;
