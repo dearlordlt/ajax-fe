@@ -1,26 +1,18 @@
-<div id="page-container">
-  <div id="content-wrap">
-    <mat-toolbar>
-      <mat-toolbar-row>
-        <button mat-raised (click)="navigate('/')" routerLinkActive="active">
-          <mat-icon class="material-icons">home</mat-icon>
-          Home
-        </button>
-        <button mat-raised (click)="navigate('/random-npc')" routerLinkActive="active">
-          <mat-icon class="material-icons">pets</mat-icon>
-          NPC generator
-        </button>
-        <button mat-raised (click)="navigate('/admin')" routerLinkActive="active">
-          <mat-icon class="material-icons">security</mat-icon>
-          Admin
-        </button>
-        <button mat-raised (click)="logout()" routerLinkActive="active">
-          <mat-icon class="material-icons">power_off</mat-icon>
-          Logout
-        </button>
-      </mat-toolbar-row>
-    </mat-toolbar>
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button mat-raised (click)="navigate('/')" routerLinkActive="active">
+      <mat-icon class="material-icons" aria-label="Home">home</mat-icon>
+    </button>
+    <button mat-raised (click)="navigate('/random-npc')" routerLinkActive="active">
+      <mat-icon class="material-icons" aria-label="NPC generator">pets</mat-icon>
+    </button>
+    <button mat-raised (click)="navigate('/admin')" routerLinkActive="active">
+      <mat-icon class="material-icons" aria-label="Admin">security</mat-icon>
+    </button>
+    <button mat-raised (click)="logout()" routerLinkActive="active">
+      <mat-icon class="material-icons" aria-label="Logout">power_off</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
 
-    <router-outlet fxFlex></router-outlet>
-  </div>
-</div>
+<router-outlet fxFlex></router-outlet>
