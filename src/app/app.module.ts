@@ -28,6 +28,7 @@ import { RandomNpcComponent } from './_components/random-npc/random-npc.componen
 import { AppHttpInterceptor } from './http.interceptor';
 import { AdminComponent } from './_components/admin/admin.component';
 import { SkillsComponent } from './_components/skills/skills.component';
+import { TableComponent } from './_components/_shared/table/table.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SkillsComponent } from './_components/skills/skills.component';
     LoginComponent,
     RandomNpcComponent,
     AdminComponent,
-    SkillsComponent
+    SkillsComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

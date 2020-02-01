@@ -3,6 +3,10 @@
     <mat-card-title>Home</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <p>home works!</p>
+
+    Table demo:
+
+    <app-table [ds]="demoTs" [loading]="false" [displayedColumns]="['name', 'description']"></app-table>
+
   </mat-card-content>
 </mat-card>
