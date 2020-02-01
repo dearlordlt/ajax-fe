@@ -12,21 +12,22 @@ export class AppHttpInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
 
     if (!req.url.includes('auth/login')) {
-      const { accessToken } = JSON.parse(localStorage.getItem('currentUser'));
-      if (accessToken) {
-        req = req.clone({
-          setHeaders: {
-            Authorization: `Bearer ${accessToken}`
-          }
-        });
+      if (localStorage.getItem('currentUser')) {
+        const { accessToken } = JSON.parse(localStorage.getItem('currentUser'));
+        if (accessToken) {
+          req = req.clone({
+            setHeaders: {
+              Authorization: `Bearer ${accessToken}`
+            }
+          });
+        }
       }
     }
 
     return next.handle(req).pipe(
       tap(evt => {
         if (evt instanceof HttpResponse) {
-          if (evt.body && evt.body.success) {
-            console.log('Success', evt.body.success.message, evt.body.success.title);
+          if (evt.body && evt.body.success && evt.body.success.message && evt.body.success.title) {
             this.snackBar.open(evt.body.success.message, evt.body.success.title, {
               duration: 5000,
             });

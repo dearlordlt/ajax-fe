@@ -1,11 +1,11 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from './_services';
 import { User } from './_models';
 
 // tslint:disable-next-line: component-selector
 @Component({ selector: 'app-ajax', templateUrl: 'app.component.html' })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   currentUser: User;
 
@@ -14,6 +14,12 @@ export class AppComponent {
     private authenticationService: AuthenticationService
   ) {
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+  }
+
+  ngOnInit() {
+    this.authenticationService.keepAlive().subscribe(data => {
+      console.log('PING', data);
+    });
   }
 
   logout() {

@@ -6,14 +6,25 @@ import { map } from 'rxjs/operators';
 import { User } from '../_models';
 import { environment } from 'src/environments/environment';
 
+interface ISuccess {
+    success: boolean;
+}
+
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
+    public $alive: Observable<ISuccess>;
 
     constructor(private http: HttpClient) {
         this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
+    }
+
+    keepAlive(): Observable<ISuccess> {
+        return this.$alive = this.http
+            .post<ISuccess>(environment.apiUrl + '/auth/keep-alive', {})
+            .pipe(map(success => success));
     }
 
     public get currentUserValue(): User {
@@ -21,7 +32,6 @@ export class AuthenticationService {
     }
 
     login(username: string, password: string) {
-        console.log('LOGIN');
         return this.http.post<any>(environment.apiUrl + '/auth/login', { username, password })
             .pipe(map(user => {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
