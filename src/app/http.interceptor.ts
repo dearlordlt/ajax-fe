@@ -3,9 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 @Injectable()
 export class AppHttpInterceptor implements HttpInterceptor {
-  constructor(public snackBar: MatSnackBar) { }
+  constructor(
+    public snackBar: MatSnackBar,
+    private router: Router
+  ) { }
+
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
@@ -36,9 +41,16 @@ export class AppHttpInterceptor implements HttpInterceptor {
       }),
       catchError((err: any) => {
         if (err instanceof HttpErrorResponse) {
-          this.snackBar.open(err.message, 'OK', {
-            duration: 5000,
-          });
+          console.log('HTTP ERROR', err);
+          if (err.status === 401) {
+            console.log('NAV LOGIN');
+            localStorage.removeItem('currentUser');
+            this.router.navigate(['/login']);
+          } else {
+            this.snackBar.open(err.message, 'OK', {
+              duration: 5000,
+            });
+          }
         }
         return of(err);
       }));
