@@ -7,6 +7,7 @@ import { RandomNpcComponent } from './_components/random-npc/random-npc.componen
 import { Role } from './_models/';
 import { AdminComponent } from './_components/admin/admin.component';
 import { SkillsComponent } from './_components/skills/skills.component';
+import { MeleeWeaponsComponent } from './_components/melee-weapons/melee-weapons.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,11 @@ const routes: Routes = [
     component: AdminComponent,
     canActivate: [AuthGuard],
     data: { roles: [Role.Admin] }
+  },
+  {
+    path: 'meleeweapons',
+    component: MeleeWeaponsComponent,
+    canActivate: [AuthGuard],
   },
 
   // otherwise redirect to login
