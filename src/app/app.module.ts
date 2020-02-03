@@ -30,6 +30,10 @@ import { AdminComponent } from './_components/admin/admin.component';
 import { SkillsComponent } from './_components/skills/skills.component';
 import { TableComponent } from './_components/_shared/table/table.component';
 import { MeleeWeaponsComponent } from './_components/melee-weapons/melee-weapons.component';
+import { ShieldsComponent } from './_components/shields/shields.component';
+import { SpellsComponent } from './_components/spells/spells.component';
+import { RangedWeaponsComponent } from './_components/ranged-weapons/ranged-weapons.component';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +44,10 @@ import { MeleeWeaponsComponent } from './_components/melee-weapons/melee-weapons
     AdminComponent,
     SkillsComponent,
     TableComponent,
-    MeleeWeaponsComponent
+    MeleeWeaponsComponent,
+    ShieldsComponent,
+    SpellsComponent,
+    RangedWeaponsComponent,
   ],
   imports: [
     BrowserModule,
