@@ -29,6 +29,7 @@ import { AppHttpInterceptor } from './http.interceptor';
 import { AdminComponent } from './_components/admin/admin.component';
 import { SkillsComponent } from './_components/skills/skills.component';
 import { TableComponent } from './_components/_shared/table/table.component';
+import { MeleeWeaponsComponent } from './_components/melee-weapons/melee-weapons.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { TableComponent } from './_components/_shared/table/table.component';
     RandomNpcComponent,
     AdminComponent,
     SkillsComponent,
-    TableComponent
+    TableComponent,
+    MeleeWeaponsComponent
   ],
   imports: [
     BrowserModule,
