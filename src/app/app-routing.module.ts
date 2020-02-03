@@ -8,6 +8,10 @@ import { Role } from './_models/';
 import { AdminComponent } from './_components/admin/admin.component';
 import { SkillsComponent } from './_components/skills/skills.component';
 import { MeleeWeaponsComponent } from './_components/melee-weapons/melee-weapons.component';
+import { ShieldsComponent } from './_components/shields/shields.component';
+import { RangedWeaponsComponent } from './_components/ranged-weapons/ranged-weapons.component';
+import { SpellsComponent } from './_components/spells/spells.component';
+
 
 const routes: Routes = [
   {
@@ -36,8 +40,23 @@ const routes: Routes = [
     data: { roles: [Role.Admin] }
   },
   {
-    path: 'meleeweapons',
+    path: 'equipment/meleeweapons',
     component: MeleeWeaponsComponent,
+    canActivate: [AuthGuard],
+  },
+{
+    path: 'equipment/rangedweapons',
+    component: RangedWeaponsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'equipment/shields',
+    component: ShieldsComponent,
+    canActivate: [AuthGuard],
+  },
+{
+    path: 'spells',
+    component: SpellsComponent,
     canActivate: [AuthGuard],
   },
 
