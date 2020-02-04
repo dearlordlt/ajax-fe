@@ -28,6 +28,10 @@ export class MeleeWeaponsComponent implements OnInit {
   constructor(private meleeWeaponsService: MeleeWeaponsService, private authService: AuthenticationService) { }
 
   ngOnInit() {
+    this.updateTable();
+  }
+
+  updateTable() {
     this.meleeWeaponsService.getAll().pipe(first())
       .subscribe(
         data => {
