@@ -1,0 +1,71 @@
+<h3>Add new Weapon</h3>
+<div class="melee-form">
+  <form [formGroup]="form">
+    <div>
+      <mat-form-field hintLabel="Name">
+        <input matInput #input placeholder="Enter Name" formControlName="name" required>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field hintLabel="Range">
+        <input matInput #input type="number" placeholder="Enter Range" formControlName="range" required>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field hintLabel="Swing Base Damage">
+        <input matInput #input type="number" placeholder="Enter Swing Base Damage" formControlName="swingBaseDamage"
+          required>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field hintLabel="Swing Dices">
+        <input matInput #input placeholder="Enter Swing Dices" formControlName="swingDices" required>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field hintLabel="Thrust Base Damage">
+        <input matInput #input type="number" placeholder="Enter Thrust Base Damage" formControlName="thrustBaseDamage"
+          required>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field hintLabel="Thrust Dices">
+        <input matInput #input placeholder="Enter Thrust Dices" formControlName="thrustDices" required>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field hintLabel="Min STR">
+        <input matInput #input type="number" placeholder="Enter Min STR" formControlName="strRequirement" required>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field hintLabel="Weight">
+        <input matInput #input type="number" placeholder="Enter Weight" formControlName="weight" required>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field hintLabel="Cost">
+        <input matInput #input placeholder="Enter Cost" formControlName="cost" required>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field hintLabel="Description">
+        <textarea matInput placeholder="Enter Description" formControlName="description"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <hr>
+      <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="save()">Submit</button>
+    </div>
+  </form>
+</div>

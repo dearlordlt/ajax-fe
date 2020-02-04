@@ -5,6 +5,8 @@
   <mat-card-content>
     <app-table [ds]="meleeWeapons" [loading]="loading" [displayedColumns]="displayedColumns"></app-table>
     <mat-divider></mat-divider>
-    <div *ngIf="authService.currentUserValue.role === 'ADMIN'">I am Admin</div>
+    <div *ngIf="authService.currentUserValue.role === 'ADMIN'">
+      <app-add-melee-form (updateTable)="updateTable()" [test]="106"></app-add-melee-form>
+    </div>
   </mat-card-content>
 </mat-card>

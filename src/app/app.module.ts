@@ -33,6 +33,7 @@ import { MeleeWeaponsComponent } from './_components/melee-weapons/melee-weapons
 import { ShieldsComponent } from './_components/shields/shields.component';
 import { SpellsComponent } from './_components/spells/spells.component';
 import { RangedWeaponsComponent } from './_components/ranged-weapons/ranged-weapons.component';
+import { AddMeleeFormComponent } from './_components/melee-weapons/add-melee-form/add-melee-form.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { RangedWeaponsComponent } from './_components/ranged-weapons/ranged-weap
     ShieldsComponent,
     SpellsComponent,
     RangedWeaponsComponent,
+    AddMeleeFormComponent,
   ],
   imports: [
     BrowserModule,
