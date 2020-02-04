@@ -15,9 +15,9 @@ export class MeleeWeaponsComponent implements OnInit {
   displayedColumns: string[] = [
     'name',
     'range',
-    'swingbaseDamage',
+    'swingBaseDamage',
     'swingDices',
-    'thrustbaseDamage',
+    'thrustBaseDamage',
     'thrustDices',
     'strRequirement',
     'weight',

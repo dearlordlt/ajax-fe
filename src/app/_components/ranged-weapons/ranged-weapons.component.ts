@@ -10,7 +10,7 @@ import { IRangedWeapons } from 'src/app/_types';
 })
 export class RangedWeaponsComponent implements OnInit {
 
-  rangedweapons: IRangedWeapons[];
+  rangedWeapons: IRangedWeapons[];
   loading = true;
   displayedColumns: string[] = [
     'name',
@@ -31,7 +31,7 @@ export class RangedWeaponsComponent implements OnInit {
     this.rangedweaponsService.getAll().pipe(first())
       .subscribe(
         data => {
-          this.rangedweapons = data;
+          this.rangedWeapons = data;
           this.loading = false;
         });
   }

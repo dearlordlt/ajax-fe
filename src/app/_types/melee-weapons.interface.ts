@@ -1,9 +1,9 @@
 export interface IMeleeWeapons extends Document {
     name: string;
     range: number[];
-    swingbaseDamage: number;
+    swingBaseDamage: number;
     swingDices: string[];
-    thrustbaseDamage: number;
+    thrustBaseDamage: number;
     thrustDices: string[];
     strRequirement: number;
     weight: number;

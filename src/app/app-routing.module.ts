@@ -45,7 +45,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
 {
-    path: 'equipment/rangedweapons',
+    path: 'equipment/rangedWeapons',
     component: RangedWeaponsComponent,
     canActivate: [AuthGuard],
   },
