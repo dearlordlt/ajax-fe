@@ -28,7 +28,10 @@
 
       <div>
         <mat-form-field hintLabel="Spell Cost Type">
-          <input matInput #input placeholder="Spell Cost Type" formControlName="spellCostType" required>
+          <select matNativeControl formControlName="spellCostType" required>
+            <option value="NUMBER">Number</option>
+            <option value="PERCENTAGE">Percentage</option>
+          </select>
         </mat-form-field>
       </div>
 
