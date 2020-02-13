@@ -34,6 +34,7 @@ import { ShieldsComponent } from './_components/shields/shields.component';
 import { SpellsComponent } from './_components/spells/spells.component';
 import { RangedWeaponsComponent } from './_components/ranged-weapons/ranged-weapons.component';
 import { AddMeleeFormComponent } from './_components/melee-weapons/add-melee-form/add-melee-form.component';
+import { AddSpellsFormComponent } from './_components/spells/add-spells-form/add-spells-form.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { AddMeleeFormComponent } from './_components/melee-weapons/add-melee-for
     SpellsComponent,
     RangedWeaponsComponent,
     AddMeleeFormComponent,
+    AddSpellsFormComponent,
   ],
   imports: [
     BrowserModule,
