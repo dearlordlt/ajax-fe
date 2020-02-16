@@ -18,7 +18,6 @@ export class AddSpellsFormComponent implements OnInit, OnDestroy {
 
   form: FormGroup;
 
-  eventType: string = EDIT_EVENT_TYPE.SPELLS;
   editEventSubscription = new Subscription();
 
   constructor(
@@ -40,7 +39,7 @@ export class AddSpellsFormComponent implements OnInit, OnDestroy {
 
     this.editEventSubscription = this.editCommandsService.editSubject.subscribe({
       next: type => {
-        if (type === this.eventType) {
+        if (type === EDIT_EVENT_TYPE.SPELLS) {
           console.log(type);
         }
       }

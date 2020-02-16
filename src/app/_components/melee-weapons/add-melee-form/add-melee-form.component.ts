@@ -18,7 +18,6 @@ export class AddMeleeFormComponent implements OnInit, OnDestroy {
 
   form: FormGroup;
 
-  eventType: string = EDIT_EVENT_TYPE.MELEE_WEAPONS;
   editEventSubscription = new Subscription();
 
   constructor(
@@ -43,7 +42,7 @@ export class AddMeleeFormComponent implements OnInit, OnDestroy {
 
     this.editEventSubscription = this.editCommandsService.editSubject.subscribe({
       next: type => {
-        if (type === this.eventType) {
+        if (type === EDIT_EVENT_TYPE.MELEE_WEAPONS) {
           console.log(type);
         }
       }
