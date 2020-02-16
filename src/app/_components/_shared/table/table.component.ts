@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AuthenticationService } from 'src/app/_services';
+import { ITableEditOpt } from 'src/app/_types';
+import { EditCommandsService } from 'src/app/_services';
 
 @Component({
   selector: 'app-table',
@@ -17,9 +20,19 @@ export class TableComponent implements OnInit {
   @Input()
   displayedColumns: string[];
 
-  constructor() { }
+  @Input()
+  editOpt: ITableEditOpt = { type: '', column: '' };
 
-  ngOnInit() {
+  constructor(private authService: AuthenticationService, private readonly editCommandsService: EditCommandsService) { }
+
+  ngOnInit() { }
+
+  dispatchEditCommand(type: string) {
+    this.editCommandsService.dispatch(type);
+  }
+
+  get isAdmin(): boolean {
+    return this.authService.currentUserValue.role === 'ADMIN';
   }
 
 }

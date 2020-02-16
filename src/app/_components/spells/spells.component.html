@@ -1,13 +1,13 @@
 <mat-card class="example-card">
-    <mat-card-header>
-      <mat-card-title>Spells</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <app-table [ds]="spells" [loading]="loading" [displayedColumns]="displayedColumns"></app-table>
-      <mat-divider></mat-divider>
-      <div *ngIf="authService.currentUserValue.role === 'ADMIN'">
-      <app-add-spells-form (updateTable)="updateTable()" ></app-add-spells-form>
+  <mat-card-header>
+    <mat-card-title>Spells</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <app-table [ds]="spells" [loading]="loading" [displayedColumns]="displayedColumns"
+      [editOpt]="{ type: eventType, column: 'name' }"></app-table>
+    <mat-divider></mat-divider>
+    <div *ngIf="authService.currentUserValue.role === 'ADMIN'">
+      <app-add-spells-form (updateTable)="updateTable()"></app-add-spells-form>
     </div>
-    </mat-card-content>
-  </mat-card>
-  
+  </mat-card-content>
+</mat-card>

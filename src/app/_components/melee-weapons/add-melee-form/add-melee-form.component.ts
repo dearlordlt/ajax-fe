@@ -1,14 +1,16 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { MeleeWeaponsService } from '../../../_services';
+import { MeleeWeaponsService, EditCommandsService } from 'src/app/_services';
 import { first } from 'rxjs/operators';
+import { EDIT_EVENT_TYPE } from 'src/app/_types';
+import { Subscription, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-add-melee-form',
   templateUrl: './add-melee-form.component.html',
   styleUrls: ['./add-melee-form.component.less']
 })
-export class AddMeleeFormComponent implements OnInit {
+export class AddMeleeFormComponent implements OnInit, OnDestroy {
 
   @Input() test: string;
 
@@ -16,7 +18,14 @@ export class AddMeleeFormComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private meleeWeaponsService: MeleeWeaponsService) { }
+  eventType: string = EDIT_EVENT_TYPE.MELEE_WEAPONS;
+  editEventSubscription = new Subscription();
+
+  constructor(
+    private fb: FormBuilder,
+    private meleeWeaponsService: MeleeWeaponsService,
+    private editCommandsService: EditCommandsService
+  ) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -31,6 +40,18 @@ export class AddMeleeFormComponent implements OnInit {
       cost: ['', [Validators.required]],
       description: ['', [Validators.required]],
     });
+
+    this.editEventSubscription = this.editCommandsService.editSubject.subscribe({
+      next: type => {
+        if (type === this.eventType) {
+          console.log(type);
+        }
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    this.editEventSubscription.unsubscribe();
   }
 
   save() {

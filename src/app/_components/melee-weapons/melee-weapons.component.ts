@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { MeleeWeaponsService, AuthenticationService } from 'src/app/_services';
-import { IMeleeWeapons } from 'src/app/_types';
+import { IMeleeWeapons, EDIT_EVENT_TYPE } from 'src/app/_types';
 
 @Component({
   selector: 'app-meleeweapons',
@@ -10,6 +10,7 @@ import { IMeleeWeapons } from 'src/app/_types';
 })
 export class MeleeWeaponsComponent implements OnInit {
 
+  eventType: string = EDIT_EVENT_TYPE.MELEE_WEAPONS;
   meleeWeapons: IMeleeWeapons[];
   loading = true;
   displayedColumns: string[] = [

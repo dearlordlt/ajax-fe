@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService, SpellsService } from 'src/app/_services';
 import { first } from 'rxjs/operators';
-import { ISpells } from 'src/app/_types';
+import { ISpells, EDIT_EVENT_TYPE } from 'src/app/_types';
 
 
 @Component({
@@ -11,6 +11,7 @@ import { ISpells } from 'src/app/_types';
 })
 export class SpellsComponent implements OnInit {
 
+  eventType: string = EDIT_EVENT_TYPE.SPELLS;
   spells: ISpells[];
   loading = true;
   displayedColumns: string[] = [
@@ -22,6 +23,7 @@ export class SpellsComponent implements OnInit {
     'spellCostType',
     'spellCost',
   ];
+
 
   constructor(private spellsService: SpellsService, private authService: AuthenticationService) { }
 
