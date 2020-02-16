@@ -34,4 +34,13 @@ export class SpellsComponent implements OnInit {
         });
   }
 
+  updateTable() {
+    this.spellsService.getAll().pipe(first())
+      .subscribe(
+        data => {
+          this.spells = data;
+          this.loading = false;
+        });
+  }
+
 }
