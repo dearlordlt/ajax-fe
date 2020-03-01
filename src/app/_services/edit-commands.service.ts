@@ -3,13 +3,13 @@ import { Observable, Subject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class EditCommandsService {
-    public editSubject: Subject<string>;
+    public editSubject: Subject<any>;
 
     constructor() {
         this.editSubject = new Subject<string>();
     }
 
-    dispatch(type: string) {
-        this.editSubject.next(type);
+    dispatch(type: string, col: any) {
+        this.editSubject.next({ type, ...col });
     }
 }

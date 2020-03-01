@@ -27,8 +27,8 @@ export class TableComponent implements OnInit {
 
   ngOnInit() { }
 
-  dispatchEditCommand(type: string) {
-    this.editCommandsService.dispatch(type);
+  dispatchEditCommand(type: string, col: any) {
+    this.editCommandsService.dispatch(type, col);
   }
 
   get isAdmin(): boolean {

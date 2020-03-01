@@ -19,24 +19,32 @@ export class AddSkillFormComponent implements OnInit, OnDestroy {
   form: FormGroup;
 
   editEventSubscription = new Subscription();
+  isEdit = false;
 
   constructor(
-  private fb: FormBuilder,
-  private skillsService: SkillsService,
-  private editCommandsService: EditCommandsService
+    private fb: FormBuilder,
+    private skillsService: SkillsService,
+    private editCommandsService: EditCommandsService
   ) { }
 
   ngOnInit() {
     this.form = this.fb.group({
+      _id: [''],
       name: ['', [Validators.required]],
       description: ['', [Validators.required]],
       skillType: ['', [Validators.required]],
     });
 
     this.editEventSubscription = this.editCommandsService.editSubject.subscribe({
-      next: type => {
-        if (type === EDIT_EVENT_TYPE.SKILLS) {
-          console.log(type);
+      next: message => {
+        if (message.type === EDIT_EVENT_TYPE.SKILLS) {
+          this.isEdit = true;
+          this.form.patchValue({
+            _id: message._id,
+            name: message.name,
+            description: message.description,
+            skillType: message.skillType,
+          });
         }
       }
     });
@@ -47,10 +55,24 @@ export class AddSkillFormComponent implements OnInit, OnDestroy {
   }
 
   save() {
-    this.skillsService.create(this.form.value).pipe(first())
-      .subscribe(data => {
-        this.updateTable.emit();
-        this.form.reset();
-      });
+    if (!this.isEdit) {
+      this.skillsService.create(this.form.value).pipe(first())
+        .subscribe(data => {
+          this.updateTable.emit();
+          this.form.reset();
+        });
+    } else {
+      this.skillsService.update(this.form.value).pipe(first())
+        .subscribe(data => {
+          this.updateTable.emit();
+          this.form.reset();
+          this.isEdit = false;
+        });
+    }
+  }
+
+  cancel() {
+    this.form.reset();
+    this.isEdit = false;
   }
 }

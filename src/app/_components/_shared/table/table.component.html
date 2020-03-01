@@ -9,7 +9,7 @@
       </span>
       <span *ngIf="isAdmin && displayedColumns[i] === editOpt.column">
         <a mat-stroked-button color="primary"
-          (click)="dispatchEditCommand(editOpt.type)">{{col[displayedColumns[i]]}}</a>
+          (click)="dispatchEditCommand(editOpt.type, col)">{{col[displayedColumns[i]]}}</a>
       </span>
     </td>
   </ng-container>
