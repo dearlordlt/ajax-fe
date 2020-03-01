@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RangedWeaponsService, AuthenticationService } from 'src/app/_services';
 import { first } from 'rxjs/operators';
-import { IRangedWeapons } from 'src/app/_types';
+import { IRangedWeapons, EDIT_EVENT_TYPE } from 'src/app/_types';
 
 @Component({
   selector: 'app-ranged-weapons',
@@ -10,6 +10,7 @@ import { IRangedWeapons } from 'src/app/_types';
 })
 export class RangedWeaponsComponent implements OnInit {
 
+  eventType: string = EDIT_EVENT_TYPE.RANGED_WEAPONS;
   rangedWeapons: IRangedWeapons[];
   loading = true;
   displayedColumns: string[] = [
@@ -25,10 +26,20 @@ export class RangedWeaponsComponent implements OnInit {
     'description',
   ];
 
-  constructor(private rangedweaponsService: RangedWeaponsService, private authService: AuthenticationService) { }
+  constructor(private rangedWeaponsService: RangedWeaponsService, private authService: AuthenticationService) { }
 
   ngOnInit() {
-    this.rangedweaponsService.getAll().pipe(first())
+    this.updateTable();
+    this.rangedWeaponsService.getAll().pipe(first())
+      .subscribe(
+        data => {
+          this.rangedWeapons = data;
+          this.loading = false;
+        });
+  }
+
+  updateTable() {
+    this.rangedWeaponsService.getAll().pipe(first())
       .subscribe(
         data => {
           this.rangedWeapons = data;

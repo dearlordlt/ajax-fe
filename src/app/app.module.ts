@@ -23,6 +23,7 @@ import {
   MatSnackBarModule,
   MatCheckboxModule,
   MatGridListModule,
+  MatSelectModule,
 } from '@angular/material';
 import { RandomNpcComponent } from './_components/random-npc/random-npc.component';
 import { AppHttpInterceptor } from './http.interceptor';
@@ -35,6 +36,9 @@ import { SpellsComponent } from './_components/spells/spells.component';
 import { RangedWeaponsComponent } from './_components/ranged-weapons/ranged-weapons.component';
 import { AddMeleeFormComponent } from './_components/melee-weapons/add-melee-form/add-melee-form.component';
 import { AddSpellsFormComponent } from './_components/spells/add-spells-form/add-spells-form.component';
+import { AddRangedWeaponsFormComponent } from './_components/ranged-weapons/add-ranged-form/add-ranged-form.component';
+import { AddSkillFormComponent } from './_components/skills/add-skills-form/add-skills-form.component';
+import { AddShieldsFormComponent } from './_components/shields/add-shields-form/add-shields-form.component';
 
 
 @NgModule({
@@ -52,6 +56,9 @@ import { AddSpellsFormComponent } from './_components/spells/add-spells-form/add
     RangedWeaponsComponent,
     AddMeleeFormComponent,
     AddSpellsFormComponent,
+    AddRangedWeaponsFormComponent,
+    AddSkillFormComponent,
+    AddShieldsFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +81,7 @@ import { AddSpellsFormComponent } from './_components/spells/add-spells-form/add
     MatSnackBarModule,
     MatCheckboxModule,
     MatGridListModule,
+    MatSelectModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true

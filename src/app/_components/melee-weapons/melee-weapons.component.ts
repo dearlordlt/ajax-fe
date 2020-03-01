@@ -4,7 +4,7 @@ import { MeleeWeaponsService, AuthenticationService } from 'src/app/_services';
 import { IMeleeWeapons, EDIT_EVENT_TYPE } from 'src/app/_types';
 
 @Component({
-  selector: 'app-meleeweapons',
+  selector: 'app-melee-weapons',
   templateUrl: './melee-weapons.component.html',
   styleUrls: ['./melee-weapons.component.less']
 })
@@ -30,6 +30,13 @@ export class MeleeWeaponsComponent implements OnInit {
 
   ngOnInit() {
     this.updateTable();
+    this.meleeWeaponsService.getAll().pipe(first())
+    .subscribe(
+      data => {
+        this.meleeWeapons = data;
+        this.loading = false;
+      });
+
   }
 
   updateTable() {

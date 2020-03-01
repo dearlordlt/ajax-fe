@@ -3,8 +3,11 @@
     <mat-card-title>Skills</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <app-table [ds]="skills" [loading]="loading" [displayedColumns]="displayedColumns"></app-table>
+    <app-table [ds]="skills" [loading]="loading" [displayedColumns]="displayedColumns"
+      [editOpt]="{ type: eventType, column: 'name' }"></app-table>
     <mat-divider></mat-divider>
-    <div *ngIf="authService.currentUserValue.role === 'ADMIN'">I am Admin</div>
+    <div *ngIf="authService.currentUserValue.role === 'ADMIN'">
+      <app-add-skills-form (updateTable)="updateTable()"></app-add-skills-form>
+    </div>
   </mat-card-content>
 </mat-card>

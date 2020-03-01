@@ -3,7 +3,6 @@ import { AuthenticationService, SpellsService } from 'src/app/_services';
 import { first } from 'rxjs/operators';
 import { ISpells, EDIT_EVENT_TYPE } from 'src/app/_types';
 
-
 @Component({
   selector: 'app-spells',
   templateUrl: './spells.component.html',
@@ -15,8 +14,8 @@ export class SpellsComponent implements OnInit {
   spells: ISpells[];
   loading = true;
   displayedColumns: string[] = [
-    'schoolName',
     'name',
+    'schoolName',
     'tier',
     'description',
     'spellType',
@@ -42,7 +41,7 @@ export class SpellsComponent implements OnInit {
         data => {
           this.spells = data;
           this.loading = false;
-        });
-  }
+      });
+    }
 
 }

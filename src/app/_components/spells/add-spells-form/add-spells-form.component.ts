@@ -28,8 +28,8 @@ export class AddSpellsFormComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.form = this.fb.group({
-      schoolName: ['', [Validators.required]],
       name: ['', [Validators.required]],
+      schoolName: ['', [Validators.required]],
       tier: ['', [Validators.required]],
       spellType: ['', [Validators.required]],
       spellCostType: ['', [Validators.required]],

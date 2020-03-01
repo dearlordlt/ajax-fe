@@ -40,12 +40,12 @@ const routes: Routes = [
     data: { roles: [Role.Admin] }
   },
   {
-    path: 'equipment/meleeweapons',
+    path: 'equipment/melee-weapons',
     component: MeleeWeaponsComponent,
     canActivate: [AuthGuard],
   },
 {
-    path: 'equipment/rangedWeapons',
+    path: 'equipment/ranged-weapons',
     component: RangedWeaponsComponent,
     canActivate: [AuthGuard],
   },

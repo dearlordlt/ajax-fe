@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { first } from 'rxjs/operators';
 import { SkillsService, AuthenticationService } from 'src/app/_services';
-import { ISkills } from 'src/app/_types';
+import { ISkills, EDIT_EVENT_TYPE } from 'src/app/_types';
 
 @Component({
   selector: 'app-skills',
@@ -10,12 +10,13 @@ import { ISkills } from 'src/app/_types';
 })
 export class SkillsComponent implements OnInit {
 
+  eventType: string = EDIT_EVENT_TYPE.SKILLS;
   skills: ISkills[];
   loading = true;
   displayedColumns: string[] = [
     'name',
+    'skillType',
     'description',
-    'type',
   ];
 
   constructor(private skillsService: SkillsService, private authService: AuthenticationService) { }
@@ -27,6 +28,15 @@ export class SkillsComponent implements OnInit {
           this.skills = data;
           this.loading = false;
         });
+  }
+
+  updateTable() {
+    this.skillsService.getAll().pipe(first())
+    .subscribe(
+      data => {
+        this.skills = data;
+        this.loading = false;
+      });
   }
 
 }

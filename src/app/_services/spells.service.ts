@@ -12,8 +12,8 @@ export class SpellsService {
     return this.http.get<any>(environment.apiUrl + '/spells').pipe(map(user => user));
   }
 
-  create(meleeWeapon: ISpells) {
-    return this.http.post<any>(environment.apiUrl + '/spells', meleeWeapon).pipe(map(weapon => weapon));
+  create(spells: ISpells) {
+    return this.http.post<any>(environment.apiUrl + '/spells', spells).pipe(map(spell => spell));
   }
 }
 

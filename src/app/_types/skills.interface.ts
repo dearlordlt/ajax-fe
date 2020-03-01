@@ -1,10 +1,7 @@
-export enum SKILL {
-    COMBAT = 'COMBAT',
-    SOCIAL = 'SOCIAL',
-}
+import { SKILL } from '.';
 
 export interface ISkills extends Document {
     name: string;
     description: string;
-    type: SKILL;
+    skillType: SKILL;
 }
