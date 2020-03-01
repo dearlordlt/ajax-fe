@@ -1,3 +1,5 @@
+import { RANGED_WEAPONSTYPE, RANGE_STR_MULTIPLIER } from '.';
+
 export interface IRangedWeapons extends Document {
     name: string;
     weaponType: RANGED_WEAPONSTYPE;
@@ -11,13 +13,3 @@ export interface IRangedWeapons extends Document {
     description: string;
   }
 
-export enum RANGE_STR_MULTIPLIER {
-    MULTIPLIER = 'MULTIPLIER',
-    NUMBER = 'NUMBER',
-}
-
-export enum RANGED_WEAPONSTYPE {
-    THROWABLE = 'THROWABLE',
-    BALISTIC = 'BALISTIC',
-    BLACKPOWDER = 'BLACKPOWDER',
-}

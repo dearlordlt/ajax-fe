@@ -1,6 +1,8 @@
+import { SPELL_COST_TYPE } from './enums';
+
 export interface ISpells extends Document {
-    schoolName: string;
     name: string;
+    schoolName: string;
     tier: number;
     description: string;
     spellType: number[];
@@ -8,15 +10,3 @@ export interface ISpells extends Document {
     spellCost: number[];
   }
 
-export enum SPELL {
-    NonCombat = 'NON-COMBAT',
-    COMBAT = 'COMBAT',
-    UTILITY = 'UTILITY',
-    FORBIDDEN = 'FORBIDDEN',
-    RITUAL = 'RITUAL',
-}
-
-export enum SPELL_COST_TYPE {
-    NUMBER = 'NUMBER',
-    PERCENTAGE = 'PERCENTAGE',
-}

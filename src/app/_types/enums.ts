@@ -5,3 +5,33 @@ export enum EDIT_EVENT_TYPE {
     RANGED_WEAPONS = 'RANGED_WEAPONS',
     SHIELDS = 'SHIELDS',
 }
+
+export enum RANGE_STR_MULTIPLIER {
+    MULTIPLIER = 'MULTIPLIER',
+    NUMBER = 'NUMBER',
+}
+
+export enum RANGED_WEAPONSTYPE {
+    THROWABLE = 'THROWABLE',
+    BALlISTIC = 'BALlISTIC',
+    BLACKPOWDER = 'BLACKPOWDER',
+}
+
+export enum SPELL {
+    NonCombat = 'NON-COMBAT',
+    COMBAT = 'COMBAT',
+    UTILITY = 'UTILITY',
+    FORBIDDEN = 'FORBIDDEN',
+    RITUAL = 'RITUAL',
+}
+
+export enum SPELL_COST_TYPE {
+    NUMBER = 'NUMBER',
+    PERCENTAGE = 'PERCENTAGE',
+}
+
+export enum SKILL {
+    COMBAT = 'COMBAT',
+    SOCIAL = 'SOCIAL',
+}
+

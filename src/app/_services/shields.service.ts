@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
+import { IShields } from '../_types';
 
 @Injectable({ providedIn: 'root' })
 export class ShieldsService {
@@ -9,5 +10,9 @@ export class ShieldsService {
 
   getAll() {
     return this.http.get<any>(environment.apiUrl + '/shields').pipe(map(user => user));
+  }
+
+  create(shields: IShields) {
+    return this.http.post<any>(environment.apiUrl + '/shields', shields).pipe(map(shield => shield));
   }
 }

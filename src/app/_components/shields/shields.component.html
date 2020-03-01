@@ -3,8 +3,11 @@
     <mat-card-title>Shields</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <app-table [ds]="shields" [loading]="loading" [displayedColumns]="displayedColumns"></app-table>
-    <mat-divider></mat-divider>
-    <div *ngIf="authService.currentUserValue.role === 'ADMIN'">I am Admin</div>
+    <app-table [ds]="shields" [loading]="loading" [displayedColumns]="displayedColumns"
+      [editOpt]="{ type: eventType, column: 'name' }"></app-table>
+      <mat-divider></mat-divider>
+      <div *ngIf="authService.currentUserValue.role === 'ADMIN'">
+        <app-add-shields-form (updateTable)="updateTable()"></app-add-shields-form>
+      </div>
   </mat-card-content>
 </mat-card>

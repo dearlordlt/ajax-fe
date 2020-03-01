@@ -1,0 +1,30 @@
+<h3>Add new Skill</h3>
+<div class="skills-form">
+    <form [formGroup]="form">
+      <div>
+          <mat-form-field hintLabel="Name">
+              <input matInput #input placeholder="Enter Name" formControlName='name' autocomplete="off" required>
+          </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field hintLabel="Skill Type">
+        <mat-select matNativeControl placeholder="Select skill type" formControlName="skillType" autocomplete="off" required>
+            <mat-option value='COMBAT'>Combat</mat-option>
+            <mat-option value='SOCIAL'>Social</mat-option>
+        </mat-select>
+        </mat-form-field>
+    </div>
+
+      <div>
+          <mat-form-field hintLabel="Description">
+              <textarea matInput placeholder="Enter Description" formControlName='description'></textarea>
+          </mat-form-field>
+      </div>
+
+      <div>
+        <hr>
+        <button mat-raised-button color="primary" [disabled]="!form.valid" (click)='save()'>Submit</button>
+      </div>
+    </form>
+</div>
