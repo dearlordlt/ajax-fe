@@ -15,4 +15,8 @@ export class SkillsService {
   create(skills: ISkills) {
     return this.http.post<any>(environment.apiUrl + '/skills', skills).pipe(map(skill => skill));
   }
+
+  update(skills: ISkills) {
+    return this.http.put<any>(environment.apiUrl + '/skills/' + skills._id, skills).pipe(map(skill => skill));
+  }
 }
