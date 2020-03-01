@@ -1,14 +1,16 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { SpellsService } from 'src/app/_services';
+import { SpellsService, EditCommandsService } from 'src/app/_services';
 import { first } from 'rxjs/operators';
+import { EDIT_EVENT_TYPE } from 'src/app/_types';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({
   selector: 'app-add-spells-form',
   templateUrl: './add-spells-form.component.html',
   styleUrls: ['./add-spells-form.component.less']
 })
-export class AddSpellsFormComponent implements OnInit {
+export class AddSpellsFormComponent implements OnInit, OnDestroy {
 
   @Input()
 
@@ -16,7 +18,13 @@ export class AddSpellsFormComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private spellsService: SpellsService) { }
+  editEventSubscription = new Subscription();
+
+  constructor(
+    private fb: FormBuilder,
+    private spellsService: SpellsService,
+    private editCommandsService: EditCommandsService
+  ) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -28,6 +36,18 @@ export class AddSpellsFormComponent implements OnInit {
       spellCost: ['', [Validators.required]],
       description: ['', [Validators.required]],
     });
+
+    this.editEventSubscription = this.editCommandsService.editSubject.subscribe({
+      next: type => {
+        if (type === EDIT_EVENT_TYPE.SPELLS) {
+          console.log(type);
+        }
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    this.editEventSubscription.unsubscribe();
   }
 
   save() {

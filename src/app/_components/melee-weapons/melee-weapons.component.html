@@ -3,7 +3,8 @@
     <mat-card-title>MeleeWeapons</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <app-table [ds]="meleeWeapons" [loading]="loading" [displayedColumns]="displayedColumns"></app-table>
+    <app-table [ds]="meleeWeapons" [loading]="loading" [displayedColumns]="displayedColumns"
+      [editOpt]="{ type: eventType, column: 'name' }"></app-table>
     <mat-divider></mat-divider>
     <div *ngIf="authService.currentUserValue.role === 'ADMIN'">
       <app-add-melee-form (updateTable)="updateTable()" [test]="106"></app-add-melee-form>
