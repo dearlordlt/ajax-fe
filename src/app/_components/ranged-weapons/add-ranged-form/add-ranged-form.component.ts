@@ -29,15 +29,15 @@ export class AddRangedWeaponsFormComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.form = this.fb.group({
-      _id: [''],
+      _id: [null],
       name: ['', [Validators.required]],
       weaponType: ['', [Validators.required]],
       rangeType: ['', [Validators.required]],
       range: ['', [Validators.required]],
-      baseDamage: ['', [Validators.required]],
-      damageDices: ['', [Validators.required]],
-      strRequirement: ['', [Validators.required]],
-      weight: ['', [Validators.required]],
+      baseDamage: [0, [Validators.required]],
+      damageDice: ['', [Validators.required]],
+      strRequirement: [0, [Validators.required]],
+      weight: [0, [Validators.required]],
       cost: ['', [Validators.required]],
       description: ['', [Validators.required]]
   });
@@ -53,12 +53,12 @@ export class AddRangedWeaponsFormComponent implements OnInit, OnDestroy {
             rangeType: message.rangeType,
             range: message.range,
             baseDamage: message.baseDamage,
-            damageDices: message.damageDices,
+            damageDice: message.damageDice,
             strRequirement: message.strRequirement,
             weight: message.weight,
             cost: message.cost,
             description: message.description,
-          })
+          });
       }
     }
   });
@@ -69,10 +69,9 @@ export class AddRangedWeaponsFormComponent implements OnInit, OnDestroy {
   }
 
   save() {
-    const damageDice = this.form.value.damageDices;
+    const damageDices = this.form.value.damageDice;
 
-    this.form.patchValue({ damageDices: Array.isArray(damageDice) ? damageDice : damageDice.split('') });
-
+    this.form.patchValue({ damageDice: Array.isArray(damageDices) ? damageDices : damageDices.split('') });
     if (!this.isEdit) {
       this.rangedWeaponsService.create(this.form.value).pipe(first())
         .subscribe(data => {
