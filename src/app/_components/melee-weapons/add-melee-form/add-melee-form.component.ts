@@ -19,6 +19,8 @@ export class AddMeleeFormComponent implements OnInit, OnDestroy {
   form: FormGroup;
 
   editEventSubscription = new Subscription();
+  isEdit = false;
+
 
   constructor(
     private fb: FormBuilder,
@@ -28,9 +30,10 @@ export class AddMeleeFormComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.form = this.fb.group({
+      _id: [''],
       name: ['', [Validators.required]],
       range: ['', [Validators.required]],
-      swingBaseDamage: ['', [Validators.required]],
+      swingBaseDamage: ['', Validators.required],
       swingDices: ['', [Validators.required]],
       thrustBaseDamage: ['', [Validators.required]],
       thrustDices: ['', [Validators.required]],
@@ -41,9 +44,22 @@ export class AddMeleeFormComponent implements OnInit, OnDestroy {
     });
 
     this.editEventSubscription = this.editCommandsService.editSubject.subscribe({
-      next: type => {
-        if (type === EDIT_EVENT_TYPE.MELEE_WEAPONS) {
-          console.log(type);
+      next: message => {
+        if (message.type === EDIT_EVENT_TYPE.MELEE_WEAPONS) {
+          this.isEdit = true;
+          this.form.patchValue({
+            _id: message._id,
+            name: message.name,
+            range: message.range,
+            swingBaseDamage: message.swingBaseDamage,
+            swingDices: message.swingDices,
+            thrustBaseDamage: message.thrustBaseDamage,
+            thrustDices: message.thrustDices,
+            strRequirement: message.strRequirement,
+            weight: message.weight,
+            cost: message.cost,
+            description: message.description,
+          });
         }
       }
     });
@@ -54,14 +70,31 @@ export class AddMeleeFormComponent implements OnInit, OnDestroy {
   }
 
   save() {
-    this.form.patchValue({ swingDices: this.form.value.swingDices.split('') });
-    this.form.patchValue({ thrustDices: this.form.value.thrustDices.split('') });
+    const swingD = this.form.value.swingDices;
+    const thrustD = this.form.value.thrustDices;
 
-    this.meleeWeaponsService.create(this.form.value).pipe(first())
-      .subscribe(data => {
-        this.updateTable.emit();
-        this.form.reset();
-      });
+    this.form.patchValue({ swingDices: Array.isArray(swingD) ? swingD : swingD.split('')});
+    this.form.patchValue({ thrustDices: Array.isArray(thrustD) ? thrustD : thrustD.split('') });
+
+    if (!this.isEdit) {
+      this.meleeWeaponsService.create(this.form.value).pipe(first())
+        .subscribe(data => {
+          this.updateTable.emit();
+          this.form.reset();
+        });
+    } else {
+      this.meleeWeaponsService.update(this.form.value).pipe(first())
+        .subscribe(data => {
+          this.updateTable.emit();
+          this.form.reset();
+          this.isEdit = false;
+        });
+    }
+  }
+
+  cancel() {
+    this.form.reset();
+    this.isEdit = false;
   }
 
 }

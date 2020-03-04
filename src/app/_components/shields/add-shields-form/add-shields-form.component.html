@@ -33,6 +33,7 @@
 
     <div>
       <hr>
+      <button mat-raised-button color="primary" *ngIf='isEdit' (click)='cancel()'>Cancel</button>
       <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="save()">Submit</button>
     </div>
   </form>

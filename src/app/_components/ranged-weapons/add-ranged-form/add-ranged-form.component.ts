@@ -19,6 +19,7 @@ export class AddRangedWeaponsFormComponent implements OnInit, OnDestroy {
   form: FormGroup;
 
   editEventSubscription = new Subscription();
+  isEdit = false;
 
   constructor(
   private fb: FormBuilder,
@@ -28,6 +29,7 @@ export class AddRangedWeaponsFormComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.form = this.fb.group({
+      _id: [''],
       name: ['', [Validators.required]],
       weaponType: ['', [Validators.required]],
       rangeType: ['', [Validators.required]],
@@ -41,26 +43,55 @@ export class AddRangedWeaponsFormComponent implements OnInit, OnDestroy {
   });
 
     this.editEventSubscription = this.editCommandsService.editSubject.subscribe({
-      next: type => {
-        if (type === EDIT_EVENT_TYPE.RANGED_WEAPONS) {
-          console.log(type);
-        }
+      next: message => {
+        if (message.type === EDIT_EVENT_TYPE.RANGED_WEAPONS) {
+          this.isEdit = true;
+          this.form.patchValue({
+            _id: message._id,
+            name: message.name,
+            weaponType: message.weaponType,
+            rangeType: message.rangeType,
+            range: message.range,
+            baseDamage: message.baseDamage,
+            damageDices: message.damageDices,
+            strRequirement: message.strRequirement,
+            weight: message.weight,
+            cost: message.cost,
+            description: message.description,
+          })
       }
-    });
-  }
+    }
+  });
+}
 
   ngOnDestroy() {
     this.editEventSubscription.unsubscribe();
   }
 
   save() {
-    this.form.patchValue({ damageDices: this.form.value.damageDices.split('') });
+    const damageDice = this.form.value.damageDices;
 
-    this.rangedWeaponsService.create(this.form.value).pipe(first())
-      .subscribe(data => {
-        this.updateTable.emit();
-        this.form.reset();
-      });
+    this.form.patchValue({ damageDices: Array.isArray(damageDice) ? damageDice : damageDice.split('') });
+
+    if (!this.isEdit) {
+      this.rangedWeaponsService.create(this.form.value).pipe(first())
+        .subscribe(data => {
+          this.updateTable.emit();
+          this.form.reset();
+        });
+    } else {
+      this.rangedWeaponsService.update(this.form.value).pipe(first())
+        .subscribe(data => {
+          this.updateTable.emit();
+          this.form.reset();
+          this.isEdit = false;
+        });
+    }
+  }
+
+  cancel() {
+    this.form.reset();
+    this.isEdit = false;
   }
 
 }

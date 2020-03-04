@@ -15,4 +15,8 @@ export class MeleeWeaponsService {
   create(meleeWeapon: IMeleeWeapons) {
     return this.http.post<any>(environment.apiUrl + '/melee-weapons', meleeWeapon).pipe(map(weapon => weapon));
   }
+
+  update(meleeWeapon: IMeleeWeapons) {
+    return this.http.put<any>(environment.apiUrl + '/melee-weapons/' + meleeWeapon._id, meleeWeapon).pipe(map(weapon => weapon));
+  }
 }
