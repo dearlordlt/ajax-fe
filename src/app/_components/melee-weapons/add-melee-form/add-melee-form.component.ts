@@ -76,10 +76,13 @@ export class AddMeleeFormComponent implements OnInit, OnDestroy {
   save() {
     const swingD = this.form.value.swingDices;
     const thrustD = this.form.value.thrustDices;
+    const rangeFrom = this.form.value.rangeFrom < this.form.value.rangeTo ? this.form.value.rangeFrom : this.form.value.rangeTo;
+    const rangeTo = this.form.value.rangeFrom > this.form.value.rangeTo ? this.form.value.rangeFrom : this.form.value.rangeTo;
+
 
     this.form.patchValue({ swingDices: Array.isArray(swingD) ? swingD : swingD.split('') });
     this.form.patchValue({ thrustDices: Array.isArray(thrustD) ? thrustD : thrustD.split('') });
-    this.form.patchValue({ range: [Number(this.form.value.rangeFrom), Number(this.form.value.rangeTo)] });
+    this.form.patchValue({ range: [Number(rangeFrom), Number(rangeTo)] });
 
     if (!this.isEdit) {
       this.meleeWeaponsService.create(this.form.value).pipe(first())
