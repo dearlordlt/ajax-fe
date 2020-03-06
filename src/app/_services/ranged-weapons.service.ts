@@ -14,5 +14,9 @@ export class RangedWeaponsService {
   create(rangedWeapon: IRangedWeapons) {
     return this.http.post<any>(environment.apiUrl + '/ranged-weapons', rangedWeapon).pipe(map(weapon => weapon));
   }
+
+  update(rangedWeapon: IRangedWeapons) {
+    return this.http.put<any>(environment.apiUrl + '/ranged-weapons/' + rangedWeapon._id, rangedWeapon).pipe(map(weapon => weapon));
+  }
 }
 

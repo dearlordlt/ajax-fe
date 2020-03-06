@@ -43,5 +43,5 @@ export class SpellsComponent implements OnInit {
           this.loading = false;
       });
     }
-
 }
+

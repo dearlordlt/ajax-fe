@@ -9,10 +9,14 @@ export class ShieldsService {
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get<any>(environment.apiUrl + '/shields').pipe(map(user => user));
+    return this.http.get<any>(environment.apiUrl + '/shields' ).pipe(map(shield => shield));
   }
 
   create(shields: IShields) {
     return this.http.post<any>(environment.apiUrl + '/shields', shields).pipe(map(shield => shield));
+  }
+
+  update(shields: IShields) {
+    return this.http.put<any>(environment.apiUrl + '/shields/' + shields._id, shields).pipe(map(shield => shield));
   }
 }

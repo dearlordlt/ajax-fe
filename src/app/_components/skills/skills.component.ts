@@ -38,5 +38,5 @@ export class SkillsComponent implements OnInit {
         this.loading = false;
       });
   }
-
 }
+

@@ -15,5 +15,9 @@ export class SpellsService {
   create(spells: ISpells) {
     return this.http.post<any>(environment.apiUrl + '/spells', spells).pipe(map(spell => spell));
   }
+
+  update(spells: ISpells) {
+    return this.http.put<any>(environment.apiUrl + '/spells/' + spells._id, spells).pipe(map(spell => spell));
+  }
 }
 

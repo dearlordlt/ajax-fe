@@ -8,10 +8,13 @@
     </div>
 
     <div>
-      <mat-form-field hintLabel="Weapon Type" autocomplete="off"
-      >
-        <input matInput #input type="number" placeholder="Enter Weapon Type" formControlName="weaponType" autocomplete="off"  required>
-      </mat-form-field>
+      <mat-form-field hintLabel="Weapon Type" autocomplete="off">
+      <mat-select matInput placeholder="Enter Weapon Type" formControlName="weaponType" autocomplete="off"  required>
+        <mat-option value='THROWABLE'>Throwable</mat-option> 
+        <mat-option value='BALLISTIC'>Ballistic</mat-option>
+        <mat-option value='BLACKPOWDER'>Blackpowder</mat-option>
+      </mat-select>
+    </mat-form-field>
     </div>
 
     <div>
@@ -31,13 +34,13 @@
 
     <div>
       <mat-form-field hintLabel="Base damage">
-        <input matInput #input type="number" placeholder="Enter Base Damage" autocomplete="off"  formControlName="baseDamage" autocomplete="off" required>
+        <input matInput #input type="number" placeholder="Enter Base Damage" autocomplete="off" formControlName="baseDamage" autocomplete="off" required>
       </mat-form-field>
     </div>
 
     <div>
       <mat-form-field hintLabel="Damage Dices">
-        <input matInput #input placeholder="Enter Damage Dices" formControlName="damageDices" autocomplete="off" required>
+        <input matInput #input placeholder="Enter Damage Dices" formControlName="damageDice" autocomplete="off" required>
       </mat-form-field>
     </div>
 
@@ -67,6 +70,7 @@
 
     <div>
       <hr>
+      <button mat-raised-button color="primary" *ngIf='isEdit' (click)='cancel()'>Cancel</button>
       <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="save()">Submit</button>
     </div>
   </form>

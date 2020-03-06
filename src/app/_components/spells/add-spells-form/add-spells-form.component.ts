@@ -19,6 +19,7 @@ export class AddSpellsFormComponent implements OnInit, OnDestroy {
   form: FormGroup;
 
   editEventSubscription = new Subscription();
+  isEdit = false;
 
   constructor(
     private fb: FormBuilder,
@@ -28,6 +29,7 @@ export class AddSpellsFormComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.form = this.fb.group({
+      _id: [''],
       name: ['', [Validators.required]],
       schoolName: ['', [Validators.required]],
       tier: ['', [Validators.required]],
@@ -38,9 +40,19 @@ export class AddSpellsFormComponent implements OnInit, OnDestroy {
     });
 
     this.editEventSubscription = this.editCommandsService.editSubject.subscribe({
-      next: type => {
-        if (type === EDIT_EVENT_TYPE.SPELLS) {
-          console.log(type);
+      next: message => {
+        if (message.type === EDIT_EVENT_TYPE.SPELLS) {
+          this.isEdit = true;
+          this.form.patchValue({
+            _id: message._id,
+            name: message.name,
+            schoolName: message.schoolName,
+            tier: message.tier,
+            spellType: message.spellType,
+            spellCostType: message.spellCostType,
+            spellCost: message.spellCost,
+            description: message.description,
+          });
         }
       }
     });
@@ -53,11 +65,20 @@ export class AddSpellsFormComponent implements OnInit, OnDestroy {
   save() {
     this.form.patchValue({ spellType: this.form.value.spellType.split('') });
 
-    this.spellsService.create(this.form.value).pipe(first())
-      .subscribe(data => {
-        this.updateTable.emit();
-        this.form.reset();
-      });
+    if (!this.isEdit) {
+      this.spellsService.create(this.form.value).pipe(first())
+        .subscribe(data => {
+          this.updateTable.emit();
+          this.form.reset();
+        });
+    } else {
+      this.spellsService.update(this.form.value).pipe(first())
+        .subscribe(data => {
+          this.updateTable.emit();
+          this.form.reset();
+          this.isEdit = false;
+        });
+    }
   }
 
 }

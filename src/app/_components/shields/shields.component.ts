@@ -37,7 +37,7 @@ export class ShieldsComponent implements OnInit {
     this.shieldsService.getAll().pipe(first())
     .subscribe(
       data => {
-        this.shieldsService = data;
+        this.shields = data;
         this.loading = false;
     });
   }
