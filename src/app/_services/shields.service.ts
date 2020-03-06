@@ -9,7 +9,7 @@ export class ShieldsService {
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get<any>(environment.apiUrl + '/shields').pipe(map(user => user));
+    return this.http.get<any>(environment.apiUrl + '/shields' ).pipe(map(shield => shield));
   }
 
   create(shields: IShields) {

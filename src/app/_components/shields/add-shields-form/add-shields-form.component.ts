@@ -19,6 +19,7 @@ export class AddShieldsFormComponent implements OnInit, OnDestroy {
   form: FormGroup;
 
   editEventSubscription = new Subscription();
+  isEdit = false;
 
   constructor(
     private fb: FormBuilder,
@@ -28,17 +29,26 @@ export class AddShieldsFormComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.form = this.fb.group({
+      _id: [null],
       name: ['', [Validators.required]],
-      weight: ['', [Validators.required]],
-      defence: ['', [Validators.required]],
-      hp: ['', [Validators.required]],
+      weight: [0, [Validators.required]],
+      defence: [0, [Validators.required]],
+      hp: [0, [Validators.required]],
       cost: ['', [Validators.required]]
     });
 
     this.editEventSubscription = this.editCommandsService.editSubject.subscribe({
-      next: type => {
-        if (type === EDIT_EVENT_TYPE.SHIELDS) {
-          console.log(type);
+      next: message => {
+        if (message.type === EDIT_EVENT_TYPE.SHIELDS) {
+          this.isEdit = true;
+          this.form.patchValue({
+            _id: message._id,
+            name: message.name,
+            weight: message.weight,
+            defence: message.defence,
+            hp: message.hp,
+            cost: message.cost,
+          });
         }
       }
     });
@@ -49,10 +59,24 @@ export class AddShieldsFormComponent implements OnInit, OnDestroy {
   }
 
   save() {
-    this.shieldsService.create(this.form.value).pipe(first())
-    .subscribe(data => {
-      this.updateTable.emit();
-      this.form.reset();
-    });
+    if (!this.isEdit) {
+      this.shieldsService.create(this.form.value).pipe(first())
+        .subscribe(data => {
+          this.updateTable.emit();
+          this.form.reset();
+        });
+    } else {
+      this.shieldsService.update(this.form.value).pipe(first())
+        .subscribe(data => {
+          this.updateTable.emit();
+          this.form.reset();
+          this.isEdit = false;
+        });
+    }
+  }
+
+  cancel() {
+    this.form.reset();
+    this.isEdit = false;
   }
 }
