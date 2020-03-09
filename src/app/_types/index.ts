@@ -6,3 +6,4 @@ export * from './spells.interface';
 export * from './shields.interface';
 export * from './table-edit-options.interface';
 export * from './enums';
+export * from './beasts.interface';

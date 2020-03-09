@@ -6,3 +6,4 @@ export * from './ranged-weapons.service';
 export * from './spells.service';
 export * from './shields.service';
 export * from './edit-commands.service';
+export * from './beasts.service';

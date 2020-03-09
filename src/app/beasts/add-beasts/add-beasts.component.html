@@ -1,0 +1,52 @@
+<h3>{{ isEdit ? 'Edit Beast'  : 'Add new Beast'}}</h3>
+<div class="ranged-form">
+  <form [formGroup]="form">
+    <div>
+      <mat-form-field hintLabel="NPC">
+        <input matInput #input placeholder="Enter NPC" formControlName="npc" autocomplete="off" required>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field hintLabel="Attributes" autocomplete="off">
+      <mat-select matInput placeholder="Enter Attributes" formControlName="attributes" autocomplete="off"  required>
+      </mat-select>
+    </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field hintLabel="Range Talents">
+        <mat-select matInput placeholder="Enter Talents"  formControlName="talents" autocomplete="off" required>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    
+    <div>
+      <mat-form-field hintLabel="Range Stats">
+        <mat-select matInput placeholder="Enter Stats"  formControlName="stats" autocomplete="off" required>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    
+    <div>
+      <mat-form-field hintLabel="Range Abilities">
+        <mat-select matInput placeholder="Enter Abilities"  formControlName="abilities" autocomplete="off" required>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    
+    <div>
+      <mat-form-field hintLabel="Range Weight">
+        <mat-select matInput placeholder="Enter Weight"  formControlName="weight" autocomplete="off" required>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
+    <div>
+      <hr>
+      <button mat-raised-button color="primary" *ngIf='isEdit' (click)='cancel()'>Cancel</button>
+      <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="save()">Submit</button>
+    </div>
+  </form>
+</div>
