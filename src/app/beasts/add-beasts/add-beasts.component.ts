@@ -10,7 +10,7 @@ import { first } from 'rxjs/operators';
   templateUrl: './add-beasts.component.html',
   styleUrls: ['./add-beasts.component.less']
 })
-export class AddBeastsFormComponent implements OnInit, OnDestroy {
+export class AddBeastsComponent implements OnInit, OnDestroy {
 
   @Input() test: string;
 
