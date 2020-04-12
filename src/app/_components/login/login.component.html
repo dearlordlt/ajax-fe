@@ -37,6 +37,14 @@
             </mat-card-actions>
           </td>
         </tr>
+        <tr>
+          <td>
+            <mat-card-actions>
+              Don't have account? Click here to <a mat-flat-button color="secondary"
+              (click)="onRegister()">Register</a>
+            </mat-card-actions>
+          </td>
+        </tr>
       </table>
     </form>
     <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>

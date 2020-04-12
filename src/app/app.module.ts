@@ -39,6 +39,7 @@ import { AddSpellsFormComponent } from './_components/spells/add-spells-form/add
 import { AddRangedWeaponsFormComponent } from './_components/ranged-weapons/add-ranged-form/add-ranged-form.component';
 import { AddSkillFormComponent } from './_components/skills/add-skills-form/add-skills-form.component';
 import { AddShieldsFormComponent } from './_components/shields/add-shields-form/add-shields-form.component';
+import { RegisterComponent } from './_components/register/register.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { AddShieldsFormComponent } from './_components/shields/add-shields-form/
     AddRangedWeaponsFormComponent,
     AddSkillFormComponent,
     AddShieldsFormComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
