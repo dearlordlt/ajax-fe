@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AuthenticationService } from '../../_services';
+import { RegistrationService } from '../../_services';
 
 @Component({ templateUrl: 'login.component.html' })
 export class LoginComponent implements OnInit {
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private registrationService: RegistrationService
   ) {
     if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
@@ -30,11 +32,19 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
 
+    if (this.registrationService.registrationUserValue) {
+      this.loginForm.patchValue({username: this.registrationService.registrationUserValue.username})
+    }
+
     this.returnUrl = this.route.snapshot.queryParams.returnUrl || '/';
   }
 
   // convenience getter for easy access to form fields
   get f() { return this.loginForm.controls; }
+
+  onRegister() {
+    this.router.navigate(['/register']);
+  }
 
   onSubmit() {
     this.submitted = true;

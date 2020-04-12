@@ -1,0 +1,65 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Username" formControlName="username" [errorStateMatcher]="matcher" autocomplete="off">
+                <mat-error *ngIf="username?.invalid">
+                  Username is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Password" formControlName="password" [errorStateMatcher]="matcher" autocomplete="off">
+                <mat-error *ngIf="password?.invalid">
+                  Password is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email" formControlName="email" [errorStateMatcher]="matcher" autocomplete="off">
+                <mat-error *ngIf="email?.invalid">
+                  Email is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <pre *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error.error | json}}</pre>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-card-actions>
+                <button mat-raised-button [disabled]="loading" color="primary">Register</button>
+              </mat-card-actions>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <mat-card-actions>
+                Have account? Click here to <a mat-flat-button color="secondary"
+                (click)="onLogin()">Login</a>
+              </mat-card-actions>
+            </td>
+          </tr>
+        </table>
+      </form>
+      <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+    </mat-card-content>
+  
+  
+  </mat-card>
+  

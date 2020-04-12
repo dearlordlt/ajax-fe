@@ -11,6 +11,7 @@ import { MeleeWeaponsComponent } from './_components/melee-weapons/melee-weapons
 import { ShieldsComponent } from './_components/shields/shields.component';
 import { RangedWeaponsComponent } from './_components/ranged-weapons/ranged-weapons.component';
 import { SpellsComponent } from './_components/spells/spells.component';
+import { RegisterComponent } from './_components/register/register.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path: 'random-npc',
