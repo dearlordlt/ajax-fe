@@ -1,14 +1,14 @@
 import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { BeastsService, EditCommandsService } from 'src/app/_services';
 import { EDIT_EVENT_TYPE } from 'src/app/_types';
 import { first } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-add-beasts',
-  templateUrl: './add-beasts.component.html',
-  styleUrls: ['./add-beasts.component.less']
+  selector: 'app-add-beasts-form',
+  templateUrl: './add-beasts-form.component.html',
+  styleUrls: ['./add-beasts-form.component.less']
 })
 export class AddBeastsComponent implements OnInit, OnDestroy {
 
@@ -17,6 +17,10 @@ export class AddBeastsComponent implements OnInit, OnDestroy {
   @Output() updateTable = new EventEmitter();
 
   form: FormGroup;
+  abilities = new FormControl();
+  abilityList: string[] = ['Attack', 'Ambush', 'Climb', 'Dive', 'Fetch', 'Fly', 'Guard', 'Hunt', 'Track', 'Manual Work', 'Night Vision',
+   'Power Battery 1', 'Power Battery 2', 'Power Battery 3', 'Ugly' ];
+
 
   editEventSubscription = new Subscription();
   isEdit = false;
@@ -34,7 +38,7 @@ export class AddBeastsComponent implements OnInit, OnDestroy {
       attributes: ['', [Validators.required]],
       talents: ['', [Validators.required]],
       stats: ['', [Validators.required]],
-      abilities: [0, [Validators.required]],
+      abilities: ['', [Validators.required]],
       weight: ['', [Validators.required]],
 
   });

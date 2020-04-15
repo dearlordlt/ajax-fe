@@ -1,5 +1,5 @@
 <h3>{{ isEdit ? 'Edit Beast'  : 'Add new Beast'}}</h3>
-<div class="ranged-form">
+<div class="beasts-form">
   <form [formGroup]="form">
     <div>
       <mat-form-field hintLabel="NPC">
@@ -15,28 +15,29 @@
     </div>
 
     <div>
-      <mat-form-field hintLabel="Range Talents">
+      <mat-form-field hintLabel="Talents">
         <mat-select matInput placeholder="Enter Talents"  formControlName="talents" autocomplete="off" required>
         </mat-select>
       </mat-form-field>
     </div>
     
     <div>
-      <mat-form-field hintLabel="Range Stats">
+      <mat-form-field hintLabel="Stats">
         <mat-select matInput placeholder="Enter Stats"  formControlName="stats" autocomplete="off" required>
         </mat-select>
       </mat-form-field>
     </div>
     
     <div>
-      <mat-form-field hintLabel="Range Abilities">
-        <mat-select matInput placeholder="Enter Abilities"  formControlName="abilities" autocomplete="off" required>
+      <mat-form-field hintLabel="Abilities">
+        <mat-select matInput placeholder="Enter Abilities" formControlName="abilities" multiple autocomplete="off" required>
+          <mat-option *ngFor="let abilities of abilityList" [value]='abilities'>{{abilities}}</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
     
     <div>
-      <mat-form-field hintLabel="Range Weight">
+      <mat-form-field hintLabel="Weight">
         <mat-select matInput placeholder="Enter Weight"  formControlName="weight" autocomplete="off" required>
         </mat-select>
       </mat-form-field>
@@ -44,7 +45,6 @@
 
 
     <div>
-      <hr>
       <button mat-raised-button color="primary" *ngIf='isEdit' (click)='cancel()'>Cancel</button>
       <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="save()">Submit</button>
     </div>

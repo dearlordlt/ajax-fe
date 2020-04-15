@@ -7,7 +7,7 @@
       [editOpt]="{ type: eventType, column: 'name' }"></app-table>
       <mat-divider></mat-divider>
       <div *ngIf="authService.currentUserValue.role === 'ADMIN'">
-        <app-add-ranged-form (updateTable)="updateTable()" [test]="106"></app-add-ranged-form>
+        <app-add-beasts-form (updateTable)="updateTable()"></app-add-beasts-form>
       </div>
     </mat-card-content>
   </mat-card>

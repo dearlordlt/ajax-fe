@@ -40,9 +40,9 @@ import { AddRangedWeaponsFormComponent } from './_components/ranged-weapons/add-
 import { AddSkillFormComponent } from './_components/skills/add-skills-form/add-skills-form.component';
 import { AddShieldsFormComponent } from './_components/shields/add-shields-form/add-shields-form.component';
 import { BeastsComponent } from './beasts/beasts.component';
-import { AddBeastsComponent } from './beasts/add-beasts/add-beasts.component';
+import { AddBeastsComponent } from './beasts/add-beasts-form/add-beasts-form.component';
 import { AdvantagesComponent } from './advantages/advantages.component';
-import { AddAdvantagesComponent } from './add-advantages/add-advantages.component';
+import { AddAdvantagesComponent } from './advantages/add-advantages/add-advantages.component';
 import { DisadvantagesComponent } from './disadvantages/disadvantages.component';
 import { AddDisadvantagesComponent } from './disadvantages/add-disadvantages/add-disadvantages.component';
 
