@@ -39,12 +39,12 @@ import { AddSpellsFormComponent } from './_components/spells/add-spells-form/add
 import { AddRangedWeaponsFormComponent } from './_components/ranged-weapons/add-ranged-form/add-ranged-form.component';
 import { AddSkillFormComponent } from './_components/skills/add-skills-form/add-skills-form.component';
 import { AddShieldsFormComponent } from './_components/shields/add-shields-form/add-shields-form.component';
-import { BeastsComponent } from './beasts/beasts.component';
-import { AddBeastsComponent } from './beasts/add-beasts-form/add-beasts-form.component';
-import { AdvantagesComponent } from './advantages/advantages.component';
-import { AddAdvantagesComponent } from './advantages/add-advantages/add-advantages.component';
-import { DisadvantagesComponent } from './disadvantages/disadvantages.component';
-import { AddDisadvantagesComponent } from './disadvantages/add-disadvantages/add-disadvantages.component';
+import { BeastsComponent } from './_components/beasts/beasts.component';
+import { AddBeastsComponent } from './_components/beasts/add-beasts-form/add-beasts-form.component';
+import { AdvantagesComponent } from './_components/advantages/advantages.component';
+import { AddAdvantagesComponent } from './_components/advantages/add-advantages/add-advantages.component';
+import { DisadvantagesComponent } from './_components/disadvantages/disadvantages.component';
+import { AddDisadvantagesComponent } from './_components/disadvantages/add-disadvantages/add-disadvantages.component';
 
 
 @NgModule({

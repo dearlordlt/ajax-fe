@@ -19,7 +19,6 @@ export class SpellsComponent implements OnInit {
     'tier',
     'description',
     'spellType',
-    'spellCostType',
     'spellCost',
   ];
 

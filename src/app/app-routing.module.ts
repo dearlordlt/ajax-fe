@@ -11,7 +11,7 @@ import { MeleeWeaponsComponent } from './_components/melee-weapons/melee-weapons
 import { ShieldsComponent } from './_components/shields/shields.component';
 import { RangedWeaponsComponent } from './_components/ranged-weapons/ranged-weapons.component';
 import { SpellsComponent } from './_components/spells/spells.component';
-import { BeastsComponent } from './beasts/beasts.component';
+import { BeastsComponent } from './_components/beasts/beasts.component';
 
 
 const routes: Routes = [
