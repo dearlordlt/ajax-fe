@@ -6,8 +6,7 @@ export interface ISpells extends Document {
     schoolName: string;
     tier: number;
     description: string;
-    spellType: number[];
-    spellCostType: SPELL_COST_TYPE;
+    spellType: string[];
     spellCost: number[];
-  }
+}
 

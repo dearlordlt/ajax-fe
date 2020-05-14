@@ -1,4 +1,4 @@
-<h3>Add new Ranged Weapon</h3>
+<h3>{{ isEdit ? 'Edit Ranged Weapon'  : 'Add new Ranged Weapon'}}</h3>
 <div class="ranged-form">
   <form [formGroup]="form">
     <div>
@@ -69,7 +69,6 @@
     </div>
 
     <div>
-      <hr>
       <button mat-raised-button color="primary" *ngIf='isEdit' (click)='cancel()'>Cancel</button>
       <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="save()">Submit</button>
     </div>

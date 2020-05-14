@@ -75,4 +75,4 @@ export class AddSkillFormComponent implements OnInit, OnDestroy {
     this.form.reset();
     this.isEdit = false;
   }
-}
+}  

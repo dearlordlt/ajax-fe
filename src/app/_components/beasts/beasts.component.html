@@ -1,0 +1,14 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Beasts</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <app-table [ds]="beasts" [loading]="loading" [displayedColumns]="displayedColumns"
+      [editOpt]="{ type: eventType, column: 'name' }"></app-table>
+      <mat-divider></mat-divider>
+      <div *ngIf="authService.currentUserValue.role === 'ADMIN'">
+        <app-add-beasts-form (updateTable)="updateTable()"></app-add-beasts-form>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  

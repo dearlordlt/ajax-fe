@@ -21,15 +21,13 @@
 
       <div>
         <mat-form-field hintLabel="Spell Type">
-          <input matInput #input placeholder="Spell Type" formControlName="spellType" autocomplete="off" required>
-        </mat-form-field>
-      </div>
-
-      <div>
-        <mat-form-field hintLabel="Spell Cost Type">
-          <mat-select matNativeControl formControlName="spellCostType"  required>
-            <mat-option value="NUMBER">Number</mat-option>
-            <mat-option value="PERCENTAGE">Percentage</mat-option>
+          <mat-select formControlName="spellType" multiple>
+            <mat-option value="Non-Combat">Non-Combat</mat-option>
+            <mat-option value="Combat">Combat</mat-option>
+            <mat-option value="Utility">Utility</mat-option>
+            <mat-option value="Ritual">Ritual</mat-option>
+            <mat-option value="Forbidden">Forbidden</mat-option>
+            <mat-option value="Ultimate">Ultimate</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -47,7 +45,6 @@
       </div>
 
       <div>
-        <hr>
         <button mat-raised-button color="primary" *ngIf='isEdit' (click)='cancel()'>Cancel</button>
         <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="save()">Submit</button>
       </div>

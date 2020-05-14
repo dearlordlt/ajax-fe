@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { SpellsService, EditCommandsService } from 'src/app/_services';
 import { first } from 'rxjs/operators';
 import { EDIT_EVENT_TYPE } from 'src/app/_types';
@@ -29,12 +29,11 @@ export class AddSpellsFormComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.form = this.fb.group({
-      _id: [''],
+      _id: [null],
       name: ['', [Validators.required]],
       schoolName: ['', [Validators.required]],
       tier: ['', [Validators.required]],
       spellType: ['', [Validators.required]],
-      spellCostType: ['', [Validators.required]],
       spellCost: ['', [Validators.required]],
       description: ['', [Validators.required]],
     });
@@ -49,7 +48,6 @@ export class AddSpellsFormComponent implements OnInit, OnDestroy {
             schoolName: message.schoolName,
             tier: message.tier,
             spellType: message.spellType,
-            spellCostType: message.spellCostType,
             spellCost: message.spellCost,
             description: message.description,
           });
@@ -63,7 +61,6 @@ export class AddSpellsFormComponent implements OnInit, OnDestroy {
   }
 
   save() {
-    this.form.patchValue({ spellType: this.form.value.spellType.split('') });
 
     if (!this.isEdit) {
       this.spellsService.create(this.form.value).pipe(first())
