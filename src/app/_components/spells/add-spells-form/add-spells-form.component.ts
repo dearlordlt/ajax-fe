@@ -78,4 +78,9 @@ export class AddSpellsFormComponent implements OnInit, OnDestroy {
     }
   }
 
+  cancel() {
+    this.form.reset();
+    this.isEdit = false;
+  }
+
 }

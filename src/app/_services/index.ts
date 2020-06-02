@@ -6,8 +6,5 @@ export * from './ranged-weapons.service';
 export * from './spells.service';
 export * from './shields.service';
 export * from './edit-commands.service';
-<<<<<<< HEAD
 export * from './registration.service';
-=======
 export * from './beasts.service';
->>>>>>> feat/update_tables

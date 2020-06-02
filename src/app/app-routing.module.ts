@@ -11,11 +11,9 @@ import { MeleeWeaponsComponent } from './_components/melee-weapons/melee-weapons
 import { ShieldsComponent } from './_components/shields/shields.component';
 import { RangedWeaponsComponent } from './_components/ranged-weapons/ranged-weapons.component';
 import { SpellsComponent } from './_components/spells/spells.component';
-<<<<<<< HEAD
 import { RegisterComponent } from './_components/register/register.component';
-=======
 import { BeastsComponent } from './_components/beasts/beasts.component';
->>>>>>> feat/update_tables
+import { CTableComponent } from './_components/ctable/combat-table.component';
 
 
 const routes: Routes = [
@@ -53,12 +51,12 @@ const routes: Routes = [
     component: MeleeWeaponsComponent,
     canActivate: [AuthGuard],
   },
-{
+  {
     path: 'equipment/ranged-weapons',
     component: RangedWeaponsComponent,
     canActivate: [AuthGuard],
   },
-{
+  {
     path: 'beasts',
     component: BeastsComponent,
     canActivate: [AuthGuard],
@@ -68,9 +66,14 @@ const routes: Routes = [
     component: ShieldsComponent,
     canActivate: [AuthGuard],
   },
-{
+  {
     path: 'spells',
     component: SpellsComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'combat-table',
+    component: CTableComponent,
     canActivate: [AuthGuard],
   },
 

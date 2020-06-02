@@ -1,9 +1,10 @@
 import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl, } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { BeastsService, EditCommandsService } from 'src/app/_services';
+import { EditCommandsService } from 'src/app/_services';
 import { EDIT_EVENT_TYPE } from 'src/app/_types';
 import { first } from 'rxjs/operators';
+import { BeastsService } from 'src/app/_services/beasts.service';
 
 @Component({
   selector: 'app-add-beasts-form',

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { BeastsService, AuthenticationService } from '../../_services';
+import {  AuthenticationService } from '../../_services';
 import { EDIT_EVENT_TYPE, IBeasts } from '../../_types';
 import { first } from 'rxjs/operators';
+import { BeastsService } from 'src/app/_services/beasts.service';
 
 @Component({
   selector: 'app-beasts',

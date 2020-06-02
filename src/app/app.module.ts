@@ -46,6 +46,7 @@ import { AddAdvantagesComponent } from './_components/advantages/add-advantages/
 import { DisadvantagesComponent } from './_components/disadvantages/disadvantages.component';
 import { AddDisadvantagesComponent } from './_components/disadvantages/add-disadvantages/add-disadvantages.component';
 import { RegisterComponent } from './_components/register/register.component';
+import { CTableComponent } from './_components/ctable/combat-table.component';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import { RegisterComponent } from './_components/register/register.component';
     AddAdvantagesComponent,
     DisadvantagesComponent,
     AddDisadvantagesComponent,
+    CTableComponent,
   ],
   imports: [
     BrowserModule,
