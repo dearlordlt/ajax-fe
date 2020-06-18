@@ -13,7 +13,7 @@ import { RangedWeaponsComponent } from './_components/ranged-weapons/ranged-weap
 import { SpellsComponent } from './_components/spells/spells.component';
 import { RegisterComponent } from './_components/register/register.component';
 import { BeastsComponent } from './_components/beasts/beasts.component';
-import { CTableComponent } from './_components/ctable/combat-table.component';
+import { CTableComponent } from './_components/combat-table/combat-table.component';
 
 
 const routes: Routes = [

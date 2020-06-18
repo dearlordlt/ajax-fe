@@ -46,7 +46,8 @@ import { AddAdvantagesComponent } from './_components/advantages/add-advantages/
 import { DisadvantagesComponent } from './_components/disadvantages/disadvantages.component';
 import { AddDisadvantagesComponent } from './_components/disadvantages/add-disadvantages/add-disadvantages.component';
 import { RegisterComponent } from './_components/register/register.component';
-import { CTableComponent } from './_components/ctable/combat-table.component';
+import { CTableComponent } from './_components/combat-table/combat-table.component';
+import { CombatTableElementComponent } from './_components/combat-table/combat-table-element/combat-table-element.component';
 
 
 @NgModule({
@@ -75,6 +76,7 @@ import { CTableComponent } from './_components/ctable/combat-table.component';
     DisadvantagesComponent,
     AddDisadvantagesComponent,
     CTableComponent,
+    CombatTableElementComponent,
   ],
   imports: [
     BrowserModule,
@@ -98,6 +100,7 @@ import { CTableComponent } from './_components/ctable/combat-table.component';
     MatCheckboxModule,
     MatGridListModule,
     MatSelectModule,
+    FormsModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true
