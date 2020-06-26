@@ -16,6 +16,7 @@ import { BeastsComponent } from './_components/beasts/beasts.component';
 import { CTableComponent } from './_components/combat-table/combat-table.component';
 
 
+
 const routes: Routes = [
   {
     path: '',
