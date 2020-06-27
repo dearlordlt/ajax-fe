@@ -1,35 +1,104 @@
 .flexBox-container-main {
   display: flex;
-
+  width: flex;
+  flex-direction: row;
+  margin: 1px;
+  border:  1px solid black;
+  background-color: burlywood;
+  align-items: stretch;
 }
 
 .flexBox-container-tables {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end
-}
-
-.flexBox-item {
   width: flex;
+  flex-direction: row;
   margin: 1px;
-  border:  1px solid black;
   background-color: burlywood;
   align-items: stretch;
   
 }
 
+.flexBox-item {
+  width: flex;
+  flex-direction: row;
+  border: 1px thick black;
+  background-color: rgb(241, 133, 60);
+  align-items: stretch;
+  text-align: left;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .flexBox-item-2 {
   width: flex;
-  margin: 1px;
-  border:  1px solid black;
-  background-color: burlywood;
+  min-width: 25px;
+  margin-left: 2.5px;
+  margin-right: 2.5px;
+  flex-direction: row;
+  border: 1px thick black;
+  background-color: rgb(241, 133, 60);
   align-items: stretch;
-  min-height: 130px;
+  text-align: right;
 }
+
 .flexBox-item-3 {
-
+  width: flex;
+  flex-direction: row;
+  background-color: rgb(241, 133, 60);
+  align-items: stretch;
+  text-align: left;
+  padding-right: 10px;
 }
-.flexBox-item-4 {
 
+/* width: flex;
+margin: 1px;
+background-color: burlywood;
+align-items: stretch; */
+
+.div-text-left {
+  text-align: left;
+  margin-bottom: 2.5px;
+  margin-top : 1.5px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
+.div-text-left-2 {
+  text-align: left;
+  margin-bottom: 2.5px;
+  margin-top : 1.5px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.div-character-box {
+  border: 1px thick black;
+  background-color: rgb(77, 77, 243);
+  margin: auto;
+  padding: 2px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.input-width {
+  width: 20px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-bottom: 0.5px;
+  margin-top : 0.5px;
+}
+
+.div-box {
+  border: 1px solid black;
+  background-color: rgb(199, 199, 199);
+  font-family: 'Roboto', sans-serif;
+  width: 20px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-bottom: 1px;
+  margin-top : 0.5px;
+  text-align: left;
+}

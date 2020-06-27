@@ -1,6 +1,6 @@
 <div>
   Name:<input type="text" [(ngModel)]="characterNameInput"/>
-  <button (click)="addElement()">add</button>
+  <button *ngIf="characterNameInput > 0" (click)="addElement()">add</button>
   <div *ngFor="let character of charactersList">
      <app-combat-table-element [character]="character"></app-combat-table-element> 
   </div>

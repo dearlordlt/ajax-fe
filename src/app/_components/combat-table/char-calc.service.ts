@@ -39,25 +39,25 @@ export class CharCalcService {
 
   public calcMinusAtt(char: Character) {
     char.minusAtt = Math.floor(char.dmgTH / 2) + Math.floor(char.dmgFH / 2) +
-    Math.floor(char.dmgCB / 2) + Math.floor(char.dmgTLA / 2) + Math.floor(char.dmgTRA / 2) +
-    Math.floor(char.dmgTLA / 2) + Math.floor(char.dmgBLA / 2) + Math.floor(char.dmgBRA / 2) +
-    Math.floor(char.dmgCLA / 2) + Math.floor(char.dmgCRA / 2) + Math.floor(char.dmgFLA / 2) + Math.floor(char.dmgFRA / 2) +
-    Math.floor(char.penalty);
+      Math.floor(char.dmgCB / 2) + Math.floor(char.dmgTLA / 2) + Math.floor(char.dmgTRA / 2) +
+      Math.floor(char.dmgTLA / 2) + Math.floor(char.dmgBLA / 2) + Math.floor(char.dmgBRA / 2) +
+      Math.floor(char.dmgCLA / 2) + Math.floor(char.dmgCRA / 2) + Math.floor(char.dmgFLA / 2) + Math.floor(char.dmgFRA / 2) +
+      Math.floor(char.penalty);
     return char.minusAtt;
   }
 
   public calcMinusDef(char: Character) {
     char.minusDef = Math.floor(char.dmgTH / 2) + Math.floor(char.dmgCH / 2) +
-    Math.floor(char.dmgFH / 2) + Math.floor(char.dmgTB / 2) + Math.floor(char.dmgCB / 2) +
-    Math.floor(char.dmgFB / 2) + Math.floor(char.dmgBLA / 2) + Math.floor(char.dmgBRA / 2) + Math.floor(char.penalty);
+      Math.floor(char.dmgFH / 2) + Math.floor(char.dmgTB / 2) + Math.floor(char.dmgCB / 2) +
+      Math.floor(char.dmgFB / 2) + Math.floor(char.dmgBLA / 2) + Math.floor(char.dmgBRA / 2) + Math.floor(char.penalty);
     return char.minusDef;
   }
 
   public calcMinusMove(char: Character) {
     char.minusMove = Math.floor(char.dmgTLL / 2) + Math.floor(char.dmgTRL / 2) +
-    Math.floor(char.dmgBLL / 2) + Math.floor(char.dmgBRL / 2) +
-    Math.floor(char.dmgCLL / 2) + Math.floor(char.dmgCRL / 2) +
-    Math.floor(char.dmgFLL / 2) + Math.floor(char.dmgFRL / 2);
+      Math.floor(char.dmgBLL / 2) + Math.floor(char.dmgBRL / 2) +
+      Math.floor(char.dmgCLL / 2) + Math.floor(char.dmgCRL / 2) +
+      Math.floor(char.dmgFLL / 2) + Math.floor(char.dmgFRL / 2);
     return char.minusMove;
   }
 

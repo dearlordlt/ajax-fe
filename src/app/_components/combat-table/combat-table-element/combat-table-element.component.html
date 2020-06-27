@@ -1,191 +1,488 @@
-Name: <input type='text' [(ngModel)] = 'character.name'> 
-<div class='flexBox-container-main'>
-  <div class='flexBox-container-tables'>
-    <div class='flexBox-item-2'>
-      <div>
-        STR: <input type='number' [(ngModel)] = 'character.str'>
+<div class = "div-character-box">
+  Name: {{character.name}}
+  <div class="flexBox-container-main">
+    <div class="flexBox-item">
+      <div class="div-text-left">
+        STR:
       </div>
-      <div>
-        STA:  <input type='number' [(ngModel)] = 'character.sta'>
+      <div class="div-text-left">
+        STA:
       </div>
-      <div>
-        DEX:  <input type='number' [(ngModel)] = 'character.dex'> 
+      <div class="div-text-left">
+        DEX: 
       </div>
-      <div>
-        PER:  <input type='number' [(ngModel)] = 'character.per'> 
+      <div class="div-text-left">
+        PER:
       </div>
-      <div>
-        REF: <input type='number' [(ngModel)] = 'character.ref'>
+      <div class="div-text-left">
+        REF:
       </div>
-      <div>
-        Will:  <input type='number' [(ngModel)] = 'character.will'> 
-      </div>
-    </div>
-  </div>
-  <div class='flexBox-container-tables'> 
-    <div class='flexBox-item-2'>
-      <div>
-        Move: {{calculationsService.calcMove(character)}}
-      </div>
-      <div>
-        Max Vigor: {{calculationsService.calcMaxVigor(character)}}
-      </div>
-      <div>
-        Penalty: {{calculationsService.calcPenalty(character)}}
-      </div>
-      <div>
-        Toughness: {{character.sta-10}}
-      </div>
-      <div>
-        HP: {{calculationsService.calcCharHP(character)}}
-      </div>
-        Encumbrance: {{calculationsService.calcEnc(character)}}
-      </div>
-  </div>
-  <div class='flexBox-container-tables'> 
-    <div class='flexBox-item-2'>
-      <div>
-        HP left: {{calculationsService.calcHPLeft(character)}}
-      </div>
-      <div>
-        (-Att) : {{calculationsService.calcMinusAtt(character)}}
-      </div>
-      <div>
-        (-Def) : {{calculationsService.calcMinusDef(character)}}
-      </div>
-      <div>
-        (-Move) : {{calculationsService.calcMinusMove(character)}}
-      </div>
-      <div>
-        (+Vg Cost) : {{calculationsService.calcPlusVigorCost(character)}}
+      <div class="div-text-left">
+        Will:
       </div>
     </div>
-  </div>
-  <div class='flexBox-container-tables'> 
-    <div class='flexBox-item-2'>
+
+    <div class="flexBox-item-2">
       <div>
-        Head Armor Weight: <input type='number' [(ngModel)] = 'character.headWeight'>
+        <input class="input-width" type="number" [(ngModel)] = "character.str">
       </div>
       <div>
-        Breast Armor Weight <input type='number' [(ngModel)] = 'character.breastWeight'>
+        <input class="input-width" type="number" [(ngModel)] = "character.sta">
       </div>
       <div>
-        Left Armor Arm Weight <input type='number' [(ngModel)] = 'character.lArmWeight'>
+        <input class="input-width" type="number" [(ngModel)] = "character.dex"> 
       </div>
       <div>
-        Right Armor Arm Weight <input type='number' [(ngModel)] = 'character.rArmWeight'>
+        <input class="input-width" type="number" [(ngModel)] = "character.per"> 
       </div>
       <div>
-        Left Armor Leg Weight <input type='number' [(ngModel)] = 'character.lLegWeight'>
+        <input class="input-width" type="number" [(ngModel)] = "character.ref">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.will"> 
+      </div>
+    </div>
+
+    <div class="flexBox-item">
+      <div class="div-text-left">
+        Move: 
+      </div>
+      <div class="div-text-left">
+        Max Vigor: 
+      </div>
+      <div class="div-text-left">
+        Penalty: 
+      </div>
+      <div class="div-text-left">
+        Toughness: 
+      </div>
+      <div class="div-text-left">
+        HP: 
+      </div>
+      <div class="div-text-left">
+        Encumbrance: 
+      </div>
+    </div>
+
+    <div class="flexBox-item-2">
+      <div class="div-box">
+        {{calculationsService.calcMove(character)}}
+      </div>
+      <div class="div-box">
+        {{calculationsService.calcMaxVigor(character)}}
+      </div>
+      <div class="div-box">
+        {{calculationsService.calcPenalty(character)}}
+      </div>
+      <div class="div-box">
+        {{character.sta-10}}
+      </div>
+      <div class="div-box">
+        {{calculationsService.calcCharHP(character)}}
+      </div>
+      <div class="div-box">
+        {{calculationsService.calcEnc(character)}}
+      </div>
+    </div>
+
+    <div class="flexBox-item">
+      <div class="div-text-left">
+        HP left:
+      </div>
+      <div class="div-text-left">
+        (-Att):
+      </div>
+      <div class="div-text-left">
+        (-Def):
+      </div>
+      <div class="div-text-left">
+        (-Move):
+      </div>
+      <div class="div-text-left">
+        (+Vg Cost):
+      </div>
+    </div>
+
+    <div class="flexBox-item-2">
+      <div class="div-box">
+        {{calculationsService.calcHPLeft(character)}}
+      </div>
+      <div class="div-box">
+        {{calculationsService.calcMinusAtt(character)}}
+      </div>
+      <div class="div-box">
+        {{calculationsService.calcMinusDef(character)}}
+      </div>
+      <div class="div-box">
+        {{calculationsService.calcMinusMove(character)}}
+      </div>
+      <div class="div-box">
+        {{calculationsService.calcPlusVigorCost(character)}}
+      </div>
+    </div>
+
+    <div class="flexBox-item">
+      <div class="div-text-left">
+        Head Armor Weight:
+      </div>
+      <div class="div-text-left">
+        Body Armor Weight:
+      </div>
+      <div class="div-text-left">
+        Left Armor Arm Weight:
+      </div>
+      <div class="div-text-left">
+        Right Armor Arm Weight:
+      </div>
+      <div class="div-text-left">
+        Left Armor Leg Weight:
+      </div>
+      <div class="div-text-left"> 
+        Right Armor Leg Weight:
+      </div>
+    </div>
+
+    <div class="flexBox-item-2">
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.headWeight">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.breastWeight">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.lArmWeight">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.rArmWeight">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.lLegWeight">
       </div>
       <div> 
-        Right Armor Leg Weight <input type='number' [(ngModel)] = 'character.rLegWeight'>
+        <input class="input-width" type="number" [(ngModel)] = "character.rLegWeight">
       </div>
     </div>
-  </div>
-  <div class='flexBox-container-tables'> 
-      <div class='flexBox-item-2'>
-        <div>
-          Padding Head Weight: <input type='number' [(ngModel)] = 'character.pHeadWeight'>
-        </div>
-        <div>
-          Padding Breast Weight <input type='number' [(ngModel)] = 'character.pBreastWeight'>
-        </div>
-        <div>
-          Padding Left Arm Weight <input type='number' [(ngModel)] = 'character.pLArmWeight'>
-        </div>
-        <div>
-          Padding Right Arm Weight <input type='number' [(ngModel)] = 'character.pRArmWeight'>
-        </div>
-        <div>
-          Padding Left Leg Weight <input type='number' [(ngModel)] = 'character.pLLegWeight'>
-        </div>
-        <div> 
-          Padding Right Leg Weight <input type='number' [(ngModel)] = 'character.pRLegWeight'>
-        </div>
-      </div>
-  </div>
-    <div class='flexBox-container-tables'> 
-      <div class='flexBox-item-2'>
-        <div>
-          Armor Head : <input type='number' [(ngModel)] = 'character.headArmor'>
-        </div>
-        <div>
-          Armor Breast  <input type='number' [(ngModel)] = 'character.breastArmor'>
-        </div>
-        <div>
-          Armor Left Arm  <input type='number' [(ngModel)] = 'character.lArmArmor'>
-        </div>
-        <div>
-          Armor Right Arm  <input type='number' [(ngModel)] = 'character.rArmArmor'>
-        </div>
-        <div>
-          Armor Left Leg  <input type='number' [(ngModel)] = 'character.lLegArmor'>
-        </div>
-        <div> 
-          Armor Right Leg  <input type='number' [(ngModel)] = 'character.rLegArmor'>
-        </div>
-      </div>
-    </div>
-  <div class='flexBox-container-tables'> 
-    <div class='flexBox-item-2'>
-      <div>
-        Vigor Spent: <input type='number' [(ngModel)]= 'character.vigorSpent'>
-      </div> 
-      <div>
-        Shield Weight <input type='number' [(ngModel)] = 'character.shieldWeight'>
-      </div> 
-      <div>
-        Weapon Weight <input type='number' [(ngModel)] = 'character.weaponWeight'>
-      </div> 
-      <div>
-        Bonus Vigor <input type='number' [(ngModel)] = 'character.vigorBonus'>
-      </div> 
-      <div>
-        Bonus Move <input type='number' [(ngModel)] = 'character.moveBonus'>
-      </div> 
-      <div>
-        Bonus Encumbrance <input type='number' [(ngModel)] = 'character.bonusEnc'>
-      </div> 
-    </div>
-  </div>
-</div>
 
-<div class='flexBox-container-main'>
-  <div class='flexBox-container-tables'>
-    <div class='flexBox-item'>
-      <div>
-       <B>Trauma Damage:</B> Head: <input type='number' [(ngModel)] = 'character.dmgTH'>
-       Body: <input type='number' [(ngModel)] = 'character.dmgTB'>
-       Left Arm: <input type='number' [(ngModel)] = 'character.dmgTLA'>
-       Right Arm <input type='number' [(ngModel)] = 'character.dmgTRA'>
-       Left Leg: <input type='number' [(ngModel)] = 'character.dmgTLL'>
-       Right Leg: <input type='number' [(ngModel)] = 'character.dmgTRL'>
+    <div class="flexBox-item">
+      <div class="div-text-left">
+        Padding Head Weight:
       </div>
-      <div>
-        <B>Bleed Damage:</B> Head: <input type='number' [(ngModel)] = 'character.dmgBH'>
-       Body: <input type='number' [(ngModel)] = 'character.dmgBB'>
-       Left Arm: <input type='number' [(ngModel)] = 'character.dmgBLA'>
-       Right Arm <input type='number' [(ngModel)] = 'character.dmgBRA'>
-       Left Leg: <input type='number' [(ngModel)] = 'character.dmgBLL'>
-       Right Leg: <input type='number' [(ngModel)] = 'character.dmgBRL'>
+      <div class="div-text-left">
+        Padding Body Weight:
       </div>
-      <div>
-        <B>Critical Damage:</B> Head: <input type='number' [(ngModel)] = 'character.dmgCH'>
-       Body: <input type='number' [(ngModel)] = 'character.dmgCB'>
-       Left Arm: <input type='number' [(ngModel)] = 'character.dmgCLA'>
-       Right Arm <input type='number' [(ngModel)] = 'character.dmgCRA'>
-       Left Leg: <input type='number' [(ngModel)] = 'character.dmgCLL'>
-       Right Leg: <input type='number' [(ngModel)] = 'character.dmgCRL'>
+      <div class="div-text-left">
+        Padding Left Arm Weight:
       </div>
-      <div>
-        <B>Fire Damage:</B> Head: <input type='number' [(ngModel)] = 'character.dmgFH'>
-       Body: <input type='number' [(ngModel)] = 'character.dmgFB'>
-       Left Arm: <input type='number' [(ngModel)] = 'character.dmgFLA'>
-       Right Arm <input type='number' [(ngModel)] = 'character.dmgFRA'>
-       Left Leg: <input type='number' [(ngModel)] = 'character.dmgFLL'>
-       Right Leg: <input type='number' [(ngModel)] = 'character.dmgFRL'>
+      <div class="div-text-left">
+        Padding Right Arm Weight:
+      </div>
+      <div class="div-text-left">
+        Padding Left Leg Weight:
+      </div>
+      <div class="div-text-left"> 
+        Padding Right Leg Weight:
       </div>
     </div>
+
+    <div class="flexBox-item-2">
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.pHeadWeight">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.pBodyWeight">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.pLArmWeight">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.pRArmWeight">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.pLLegWeight">
+      </div>
+      <div> 
+        <input class="input-width" type="number" [(ngModel)] = "character.pRLegWeight">
+      </div>
+    </div>
+
+    <div class="flexBox-item">
+      <div class="div-text-left">
+        Armor Head:
+      </div>
+      <div class="div-text-left">
+        Armor Body:
+      </div>
+      <div class="div-text-left">
+        Armor Left Arm:
+      </div>
+      <div class="div-text-left">
+        Armor Right Arm:
+      </div>
+      <div class="div-text-left">
+        Armor Left Leg:
+      </div>
+      <div class="div-text-left"> 
+        Armor Right Leg:
+      </div>
+    </div>
+
+    <div class="flexBox-item-2">
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.headArmor">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.breastArmor">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.lArmArmor">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.rArmArmor">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.lLegArmor">
+      </div>
+      <div> 
+        <input class="input-width" type="number" [(ngModel)] = "character.rLegArmor">
+      </div>
+    </div>
+
+    <div class="flexBox-item">
+      <div class="div-text-left">
+        Vigor Spent:
+      </div> 
+      <div class="div-text-left">
+        Shield Weight:
+      </div> 
+      <div class="div-text-left">
+        Weapon Weight:
+      </div> 
+      <div class="div-text-left">
+        Bonus Vigor:
+      </div> 
+      <div class="div-text-left">
+        Bonus Move:
+      </div> 
+      <div class="div-text-left">
+        Bonus Encumbrance:
+      </div> 
+    </div>
+
+    <div class="flexBox-item-2">
+      <div>
+        <input class="input-width" type="number" [(ngModel)]= "character.vigorSpent">
+      </div> 
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.shieldWeight">
+      </div> 
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.weaponWeight">
+      </div> 
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.vigorBonus">
+      </div> 
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.moveBonus">
+      </div> 
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.bonusEnc">
+      </div> 
+    </div>
   </div>
+
+  <div class="flexBox-container-main">
+    <div class="flexBox-item-3">
+      <div class="div-text-left">
+        <B>Trauma Damage:</B>
+      </div>
+      <div class="div-text-left">
+        <B>Bleed Damage:</B>
+      </div>
+      <div class="div-text-left">
+        <B>Critical Damage:</B>
+      </div>
+      <div class="div-text-left">
+        <B>Fire Damage:</B>
+      </div>
+    </div>
+    
+    <div class="flexBox-item-3">
+      <div class="div-text-left-2">
+        Head:
+      </div>
+      <div class="div-text-left-2">
+        Head:
+      </div>
+      <div class="div-text-left-2">
+        Head:
+      </div>
+      <div class="div-text-left-2">
+        Head:
+      </div>
+    </div>
+    
+    <div class="flexBox-item-2">
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgTH">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgBH">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgCH">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgFH">
+      </div>
+    </div>
+
+    <div class="flexBox-item-3">
+      <div class="div-text-left">
+        Body:
+      </div>
+      <div class="div-text-left">
+        Body:
+      </div>
+      <div class="div-text-left">
+        Body:
+      </div>
+      <div class="div-text-left">
+        Body:
+      </div>
+    </div>
+
+    <div class="flexBox-item-2">
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgTB">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgBB">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgCB">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgFB">
+      </div>
+    </div>
+
+    <div class="flexBox-item-3">
+      <div class="div-text-left">
+        Left Arm:
+      </div>
+      <div class="div-text-left">
+        Left Arm:
+      </div>
+      <div class="div-text-left">
+        Left Arm:
+      </div>
+      <div class="div-text-left">
+        Left Arm:
+      </div>
+    </div>
+
+    <div class="flexBox-item-2">
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgTLA">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgBLA">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgCLA">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgFLA">
+      </div>
+    </div>
+
+    <div class="flexBox-item-3">
+      <div class="div-text-left">
+        Right Arm
+      </div>
+      <div class="div-text-left">
+        Right Arm
+      </div>
+      <div class="div-text-left">
+        Right Arm
+      </div>
+      <div class="div-text-left">
+        Right Arm
+      </div>
+    </div>
+
+    <div class="flexBox-item-2">
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgTRA">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgBRA">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgCRA">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgFRA">
+      </div>
+    </div>
+
+    <div class="flexBox-item-3">
+      <div class="div-text-left">
+        Left Leg:
+      </div>
+      <div class="div-text-left">
+        Left Leg:
+      </div>
+      <div class="div-text-left">
+        Left Leg:
+      </div>
+      <div class="div-text-left">
+        Left Leg:
+      </div>
+    </div>
+
+    <div class="flexBox-item-2">
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgTLL">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgBLL">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgCLL">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgFLL">
+      </div>
+    </div>
+
+    <div class="flexBox-item-3">
+      <div class="div-text-left">
+        Right Leg:
+      </div>
+      <div class="div-text-left">
+        Right Leg:
+      </div>
+      <div class="div-text-left">
+        Right Leg:
+      </div>
+      <div class="div-text-left">
+        Right Leg:
+      </div>
+    </div>
+
+    <div class="flexBox-item-2">
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgTRL">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgBRL">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgCRL">
+      </div>
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.dmgFRL">
+      </div>
+    </div>
 </div>
