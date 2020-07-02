@@ -1,0 +1,10 @@
+<div>
+  <input class="input_rounded" matInput [(ngModel)]="characterNameInput" type="text"  list="Char"/>
+    <datalist id="Char">
+      <label> or select one from the list:
+      <select>
+      <option *ngFor="let user of users" value="{{user.username}}">
+      </select>
+      </label>
+    </datalist>
+</div>

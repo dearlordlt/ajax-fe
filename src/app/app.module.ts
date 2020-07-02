@@ -24,6 +24,8 @@ import {
   MatCheckboxModule,
   MatGridListModule,
   MatSelectModule,
+  MatAutocompleteModule,
+  MatFormFieldModule 
 } from '@angular/material';
 import { RandomNpcComponent } from './_components/random-npc/random-npc.component';
 import { AppHttpInterceptor } from './http.interceptor';
@@ -48,6 +50,7 @@ import { AddDisadvantagesComponent } from './_components/disadvantages/add-disad
 import { RegisterComponent } from './_components/register/register.component';
 import { CTableComponent } from './_components/combat-table/combat-table.component';
 import { CombatTableElementComponent } from './_components/combat-table/combat-table-element/combat-table-element.component';
+import { CombatTableUserSelectComponent } from './_components/combat-table/combat-table-user-select/combat-table-user-select.component';
 
 
 @NgModule({
@@ -77,6 +80,7 @@ import { CombatTableElementComponent } from './_components/combat-table/combat-t
     AddDisadvantagesComponent,
     CTableComponent,
     CombatTableElementComponent,
+    CombatTableUserSelectComponent,
   ],
   imports: [
     BrowserModule,
@@ -101,6 +105,8 @@ import { CombatTableElementComponent } from './_components/combat-table/combat-t
     MatGridListModule,
     MatSelectModule,
     FormsModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true

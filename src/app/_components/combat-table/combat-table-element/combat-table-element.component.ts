@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import Character from '../character';
-import { CharCalcService } from '../char-calc.service';
+import { CharCalcService } from '../../../_services/char-calc.service';
+import { pipe } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-combat-table-element',

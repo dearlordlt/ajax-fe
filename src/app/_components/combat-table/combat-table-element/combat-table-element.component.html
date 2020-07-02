@@ -45,6 +45,48 @@
 
     <div class="flexBox-item">
       <div class="div-text-left">
+        Vigor Spent:
+      </div> 
+      <div class="div-text-left">
+        Shield Weight:
+      </div> 
+      <div class="div-text-left">
+        Weapon Weight:
+      </div> 
+      <div class="div-text-left">
+        Bonus Vigor:
+      </div> 
+      <div class="div-text-left">
+        Bonus Move:
+      </div> 
+      <div class="div-text-left">
+        Bonus Encumbrance:
+      </div> 
+    </div>
+
+    <div class="flexBox-item-2">
+      <div>
+        <input class="input-width" type="number" [(ngModel)]= "character.vigorSpent">
+      </div> 
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.shieldWeight">
+      </div> 
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.weaponWeight">
+      </div> 
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.vigorBonus">
+      </div> 
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.moveBonus">
+      </div> 
+      <div>
+        <input class="input-width" type="number" [(ngModel)] = "character.bonusEnc">
+      </div> 
+    </div>
+
+    <div class="flexBox-item">
+      <div class="div-text-left">
         Move: 
       </div>
       <div class="div-text-left">
@@ -66,22 +108,22 @@
 
     <div class="flexBox-item-2">
       <div class="div-box">
-        {{calculationsService.calcMove(character)}}
+        {{character.move}}
       </div>
       <div class="div-box">
-        {{calculationsService.calcMaxVigor(character)}}
+        {{character.maxVigor}}
       </div>
       <div class="div-box">
-        {{calculationsService.calcPenalty(character)}}
+        {{character.penalty}}
       </div>
       <div class="div-box">
-        {{character.sta-10}}
+        {{character.toughness}}
       </div>
       <div class="div-box">
-        {{calculationsService.calcCharHP(character)}}
+        {{character.hp}}
       </div>
       <div class="div-box">
-        {{calculationsService.calcEnc(character)}}
+        {{character.encumbrance}}
       </div>
     </div>
 
@@ -105,19 +147,19 @@
 
     <div class="flexBox-item-2">
       <div class="div-box">
-        {{calculationsService.calcHPLeft(character)}}
+        {{character.hpLeft}}
       </div>
       <div class="div-box">
-        {{calculationsService.calcMinusAtt(character)}}
+        {{character.minusAtt}}
       </div>
       <div class="div-box">
-        {{calculationsService.calcMinusDef(character)}}
+        {{character.minusDef}}
       </div>
       <div class="div-box">
-        {{calculationsService.calcMinusMove(character)}}
+        {{character.minusMove}}
       </div>
       <div class="div-box">
-        {{calculationsService.calcPlusVigorCost(character)}}
+        {{character.plusVigorCost}}
       </div>
     </div>
 
@@ -189,7 +231,7 @@
         <input class="input-width" type="number" [(ngModel)] = "character.pHeadWeight">
       </div>
       <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.pBodyWeight">
+        <input class="input-width" type="number" [(ngModel)] = "character.pBreastWeight">
       </div>
       <div>
         <input class="input-width" type="number" [(ngModel)] = "character.pLArmWeight">
@@ -245,48 +287,6 @@
       <div> 
         <input class="input-width" type="number" [(ngModel)] = "character.rLegArmor">
       </div>
-    </div>
-
-    <div class="flexBox-item">
-      <div class="div-text-left">
-        Vigor Spent:
-      </div> 
-      <div class="div-text-left">
-        Shield Weight:
-      </div> 
-      <div class="div-text-left">
-        Weapon Weight:
-      </div> 
-      <div class="div-text-left">
-        Bonus Vigor:
-      </div> 
-      <div class="div-text-left">
-        Bonus Move:
-      </div> 
-      <div class="div-text-left">
-        Bonus Encumbrance:
-      </div> 
-    </div>
-
-    <div class="flexBox-item-2">
-      <div>
-        <input class="input-width" type="number" [(ngModel)]= "character.vigorSpent">
-      </div> 
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.shieldWeight">
-      </div> 
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.weaponWeight">
-      </div> 
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.vigorBonus">
-      </div> 
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.moveBonus">
-      </div> 
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.bonusEnc">
-      </div> 
     </div>
   </div>
 
@@ -484,5 +484,9 @@
       <div>
         <input class="input-width" type="number" [(ngModel)] = "character.dmgFRL">
       </div>
+    </div>
+
+    <div class="flexBox-item-2">
+      <button mat-raised-button color="primary" (click)="calculationsService.updateStats(character)">Update</button>
     </div>
 </div>

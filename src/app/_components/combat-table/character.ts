@@ -11,6 +11,8 @@ export default class Character {
   moveBonus = 0;
   weaponWeight = 0;
   vigorSpent = 0;
+  toughness = 0;
+  toughnessSpent = 0;
 
   headWeight = 0;
   breastWeight = 0;
@@ -34,12 +36,12 @@ export default class Character {
   lLegArmor = 0;
   rLegArmor = 0;
 
-  enc = 0;
+  encumbrance = 0;
   move = 0;
   bonusEnc = 0;
   maxVigor = 0;
-  HP = 0;
-  HPLeft = 0;
+  hp = 0;
+  hpLeft = 0;
 
   dmgTH = 0;
   dmgTB = 0;
