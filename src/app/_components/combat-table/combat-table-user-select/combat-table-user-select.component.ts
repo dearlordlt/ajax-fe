@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-combat-table-user-select',
@@ -9,12 +9,16 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CombatTableUserSelectComponent implements OnInit {
 
   @Input() users: any[];
-  @Input() characterNameInput = '';
+  @Output() update = new EventEmitter<string>();
+  characterNameInput = '';
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  onCharacterNameChanged(event) {
+    this.update.emit(this.characterNameInput);
+  }
 }
 

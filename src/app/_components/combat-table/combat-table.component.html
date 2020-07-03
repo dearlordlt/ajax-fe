@@ -1,6 +1,6 @@
 <div>
-<app-combat-table-user-select [(characterNameInput)]="characterNameInput" [users]="users"></app-combat-table-user-select>
-<button  (click)="addElement()">add</button> <!-- [disabled]="validateUserInput" -->
+  <app-combat-table-user-select (update)="updateCharacterName($event)" [users]="users"></app-combat-table-user-select>
+  <button  (click)="addElement()">add</button>
 </div>
 <div *ngFor="let character of charactersList">
   <app-combat-table-element [character]="character"></app-combat-table-element> 

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from 'src/app/_services';
 import { first} from 'rxjs/operators';
 import Character from './character';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
-
+import { MatSnackBar } from '@angular/material';
+import { CharCalcService } from 'src/app/_services/char-calc.service';
+import { CombatTableService } from 'src/app/_services/combat-table.service';
 
 @Component({
   selector: 'app-combat-table',
@@ -13,20 +14,17 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 export class CTableComponent implements OnInit {
 
-  options: FormGroup;
-  hideRequiredControl = new FormControl(false);
-  floatLabelControl = new FormControl('auto');
-
   users = [];
   loading = false;
   characterNameInput = '';
   charactersList = [];
 
-  constructor(private readonly usersService: UserService, fb: FormBuilder) {
-    this.options = fb.group({
-      hideRequired: this.hideRequiredControl,
-      floatLabel: this.floatLabelControl,
-    });
+  constructor(
+    private readonly usersService: UserService,
+    private readonly snackBar: MatSnackBar,
+    private readonly charCalcService: CharCalcService,
+    private readonly combatTableService: CombatTableService) {
+
   }
 
   ngOnInit() {
@@ -43,16 +41,21 @@ export class CTableComponent implements OnInit {
   }
 
   validateUserInput(): boolean {
-    /* if (this.users.some(el => el.username === this.characterNameInput)) {
-      return false;
-    }
-    return true; */
     return this.users.some(el => el.username === this.characterNameInput) ? false : true;
   }
 
+  updateCharacterName(event) {
+    this.characterNameInput = event;
+  }
+
   addElement()  {
-    const character = new Character(this.characterNameInput);
+    if (this.charactersList.find(el => el.name === this.characterNameInput)) {
+      this.snackBar.open('Character already exists', 'Achtung!', {
+        duration: 5000,
+      });
+      return;
+    }
+    const character = new Character(this.characterNameInput, this.users.find(el => el.username === this.characterNameInput)._id);
     this.charactersList.push(character);
-    this.characterNameInput = '';
   }
 }

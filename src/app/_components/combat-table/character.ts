@@ -1,5 +1,6 @@
 export default class Character {
   name: string;
+  _id: string;
   str = 10;
   sta = 10;
   dex = 10;
@@ -77,7 +78,8 @@ export default class Character {
   plusVigorCost = 0;
   penalty = 0;
 
-  constructor( name: string) {
+  constructor( name: string, _id: string) {
     this.name = name;
+    this._id = _id;
   }
 }
