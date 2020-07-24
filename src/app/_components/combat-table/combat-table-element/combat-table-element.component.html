@@ -1,0 +1,265 @@
+<div class="div-container-border">
+  <div class="container-name">
+    <div class="div-text-center">
+      <b>{{character.name}}</b>
+    </div>
+    <div class="div-text-left">
+      <div class="radio-button">
+        Viewing options :
+      </div>
+      <div class="radio-button">
+        <input type="radio" (change)="changeState('fullView')" name="View Change">Full
+      </div>
+      <div class="radio-button">
+        <input type="radio" (change)="changeState('midView')" name="View Change" checked>Compact
+      </div>
+      <div class="radio-button">
+        <input type="radio" (change)="changeState('minView')" name="View Change">Min
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+
+    <div class="div-mid-hp" *ngIf="view === 'minView'">
+      <div class="div-text-left">
+        HP:
+      </div>
+      <div class="div-box">
+        {{ character.hpLeft }}
+      </div>
+    </div>
+    <div class="div-mid-mana" *ngIf="view === 'minView'">
+      <div class="div-text-left">
+        Mana:
+      </div>
+      <div class="div-box">
+        {{ character.currentMana }}
+      </div>
+    </div>
+    <div class="div-mid-attack" *ngIf="view === 'minView'">
+      <div class="div-text-left">
+        (-Att):
+      </div>
+      <div class="div-box">
+        {{ character.minusAtt }}
+      </div>
+    </div>
+    <div class="div-mid-defece" *ngIf="view === 'minView'">
+      <div class="div-text-left">
+        (-Def):
+      </div>
+      <div class="div-box">
+        {{ character.minusDef }}
+      </div>
+    </div>
+    <div class="div-mid-vig-penalty" *ngIf="view === 'minView'">
+      <div class="div-text-left">
+        Vigor Penalty:
+      </div>
+      <div class="div-box">
+        {{ character.penalty }}
+      </div>
+    </div>
+
+    <div class="div-mid-1" *ngIf="view === 'midView'">
+      <app-stats2 [character]="character"> </app-stats2>
+    </div>
+
+    <div class="div-mid-3" *ngIf="view === 'midView' ">
+      <app-stats-penalty [character]="character">
+      </app-stats-penalty>
+    </div>
+
+    <div class="div-mid-5" *ngIf="view === 'midView' ">
+      <app-stats-rolls [character]="character"></app-stats-rolls>
+    </div>
+
+    <div class="div-mid-4" *ngIf="view === 'midView' ">
+      <app-stats-spent [character]="character"></app-stats-spent>
+    </div>
+
+    <div class="update-button" *ngIf="view === 'midView' && helpers.checkAuth(character.name)">
+      <button type=submit mat-raised-button color="primary" (click)="updateTable()">
+        Update
+      </button>
+    </div>
+
+    <div *ngIf="view === 'fullView'" class="div-stats">
+      <app-stats [character]="character"></app-stats>
+    </div>
+
+    <div class="div-mid-1" *ngIf="view === 'fullView' ">
+      <app-stats2 [character]="character">
+      </app-stats2>
+    </div>
+
+    <div class="div-mid-3" *ngIf="view === 'fullView' ">
+      <app-stats-penalty [character]="character">
+      </app-stats-penalty>
+    </div>
+
+    <div class="div-mid-2" *ngIf="view === 'fullView' ">
+      <app-stats-rolls [character]="character">
+      </app-stats-rolls>
+    </div>
+
+
+    <div class="div-mid-4" *ngIf="view === 'fullView' ">
+      <app-stats-spent [character]="character"></app-stats-spent>
+    </div>
+
+    <div class="div-mid-5" *ngIf="view === 'fullView' ">
+      <app-stats-bonus [character]="character"></app-stats-bonus>
+    </div>
+
+
+    <div class="div-mid-6" *ngIf="view === 'fullView' ">
+      <app-stats-skills [character]="character"></app-stats-skills>
+    </div>
+
+    <div *ngIf="view === 'fullView' && helpers.checkAuth(character.name)">
+      <button type=submit mat-raised-button color="primary" (click)="updateTable()">
+        Update
+      </button>
+    </div>
+  </div>
+
+
+  <!-- <<==Armor -->
+
+  <div class="container-name">
+    <div class="div-middle">
+      <button (click)="showArmor = !showArmor">{{showArmor ? "Hide Armor" : "Show Armor"}}</button>
+    </div>
+  </div>
+
+  <div class="container-armor">
+    <div class="div-armor-1" *ngIf="!showArmor">
+      <div class="div-text-left-armor">
+        Current Head Armor:
+      </div>
+      <div class="div-box">
+        {{character.headArmor + character.paddingHeadArmor - character.sunderHeadArmor - character.sunderPaddingHeadArmor}}
+      </div>
+    </div>
+    <div class="div-armor-1" *ngIf="!showArmor">
+      <div class="div-text-left-armor">
+        Current Chest Armor:
+      </div>
+      <div class="div-box">
+        {{character.breastArmor + character.paddingBreastArmor - character.sunderBreastArmor - character.sunderPaddingBreastArmor}}
+      </div>
+    </div>
+    <div class="div-armor-1" *ngIf="!showArmor">
+      <div class="div-text-left-armor">
+        Current Left Arm Armor:
+      </div>
+      <div class="div-box">
+        {{character.lArmArmor + character.paddingLArmArmor - character.sunderLArmArmor - character.sunderPaddingLArmArmor}}
+      </div>
+    </div>
+    <div class="div-armor-1" *ngIf="!showArmor">
+      <div class="div-text-left-armor">
+        Current Right Arm Armor:
+      </div>
+      <div class="div-box">
+        {{character.rArmArmor + character.paddingRArmArmor - character.sunderRArmArmor - character.sunderPaddingRArmArmor}}
+      </div>
+    </div>
+    <div class="div-armor-1" *ngIf="!showArmor">
+      <div class="div-text-left-armor">
+        Current Left Leg Armor:
+      </div>
+      <div class="div-box">
+        {{character.lLegArmor + character.paddingLLegArmor - character.sunderLLegArmor - character.sunderPaddingLLegArmor}}
+      </div>
+    </div>
+    <div class="div-armor-1" *ngIf="!showArmor">
+      <div class="div-text-left-armor">
+        Current Right Leg Armor:
+      </div>
+      <div class="div-box">
+        {{character.rLegArmor + character.paddingRLegArmor - character.sunderRLegArmor - character.sunderPaddingRLegArmor}}
+      </div>
+    </div>
+
+    <div class="div-mid-mana" *ngIf="showArmor">
+      <app-armor-current [character]="character"></app-armor-current>
+    </div>
+
+    <div class="div-armor-1" *ngIf="showArmor">
+      <app-armor-weight [character]="character"></app-armor-weight>
+    </div>
+
+    <div class="div-armor-2" *ngIf="showArmor">
+      <app-armor [character]="character"></app-armor>
+    </div>
+
+    <div class="div-armor-sunder" *ngIf="showArmor">
+      <app-armor-sunder [character]="character"></app-armor-sunder>
+    </div>
+
+
+    <div class="div-armor-3" *ngIf="showArmor">
+      <app-armor-padding-weight [character]="character"></app-armor-padding-weight>
+    </div>
+
+    <div class="div-armor-4" *ngIf="showArmor">
+      <app-armor-padding [character]="character"></app-armor-padding>
+    </div>
+
+    <div class="div-armor-sunder" *ngIf="showArmor">
+      <app-armor-padding-sunder [character]="character"></app-armor-padding-sunder>
+    </div>
+
+    <div *ngIf="showArmor && helpers.checkAuth(character.name)">
+      <button type=submit mat-raised-button color="primary" (click)="updateTable()">
+        Update
+      </button>
+    </div>
+
+  </div>
+
+  <!-- <<==Damage -->
+
+  <div class="container-name">
+    <div class="div-middle">
+      <button (click)="showDamage = !showDamage">{{showDamage ? "Hide Damage" : "Show Damage"}}</button>
+    </div>
+  </div>
+
+  <div *ngIf="showDamage" class="container-Dmg">
+    <div class="div-damage">
+      <app-damage-head [character]="character"></app-damage-head>
+    </div>
+
+    <div class="div-damage">
+      <app-damage-torso [character]="character"></app-damage-torso>
+    </div>
+
+    <div class="div-damage">
+      <app-damage-left-arm [character]="character"></app-damage-left-arm>
+    </div>
+
+    <div class="div-damage">
+      <app-damage-right-arm [character]="character"></app-damage-right-arm>
+
+    </div>
+
+    <div class="div-damage">
+      <app-damage-left-leg [character]="character"></app-damage-left-leg>
+    </div>
+
+    <div class="div-damage">
+      <app-damage-right-leg [character]="character"></app-damage-right-leg>
+
+    </div>
+    <div class="update-button" *ngIf="!showArmor && helpers.checkAuth(character.name)">
+      <button type=submit mat-raised-button color="primary" (click)="updateTable()">
+        Update
+      </button>
+    </div>
+  </div>
+</div>

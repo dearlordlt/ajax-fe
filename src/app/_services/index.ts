@@ -8,3 +8,5 @@ export * from './shields.service';
 export * from './edit-commands.service';
 export * from './registration.service';
 export * from './beasts.service';
+export * from './char-calc.service';
+export * from './combat-table.service';

@@ -24,6 +24,9 @@ import {
   MatCheckboxModule,
   MatGridListModule,
   MatSelectModule,
+  MatAutocompleteModule,
+  MatFormFieldModule,
+  MatRadioModule,
 } from '@angular/material';
 import { RandomNpcComponent } from './_components/random-npc/random-npc.component';
 import { AppHttpInterceptor } from './http.interceptor';
@@ -46,7 +49,31 @@ import { AddAdvantagesComponent } from './_components/advantages/add-advantages/
 import { DisadvantagesComponent } from './_components/disadvantages/disadvantages.component';
 import { AddDisadvantagesComponent } from './_components/disadvantages/add-disadvantages/add-disadvantages.component';
 import { RegisterComponent } from './_components/register/register.component';
-
+import { CombatTableElementComponent } from './_components/combat-table/combat-table-element/combat-table-element.component';
+import { CombatTableUserSelectComponent } from './_components/combat-table/combat-table-user-select/combat-table-user-select.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { CTableComponent } from './_components/combat-table/combat-table/combat-table.component';
+import { StatsComponent } from './_components/combat-table/stat-components/stats/stats.component';
+import { Stats2Component } from './_components/combat-table/stat-components/stats2/stats2.component';
+import { StatsPenaltyComponent } from './_components/combat-table/stat-components/stats-penalty/stats-penalty.component';
+import { StatsSkillsComponent } from './_components/combat-table/stat-components/stats-skills/stats-skills.component';
+import { StatsBonusComponent } from './_components/combat-table/stat-components/stats-bonus/stats-bonus.component';
+import { StatsSpentComponent } from './_components/combat-table/stat-components/stats-spent/stats-spent.component';
+import { StatsRollsComponent } from './_components/combat-table/stat-components/stats-rolls/stats-rolls.component';
+import { ArmorComponent } from './_components/combat-table/stat-components/armor/armor.component';
+import { ArmorCurrentComponent } from './_components/combat-table/stat-components/armor-current/armor-current.component';
+import { ArmorSunderComponent } from './_components/combat-table/stat-components/armor-sunder/armor-sunder.component';
+import { ArmorPaddingComponent } from './_components/combat-table/stat-components/armor-padding/armor-padding.component';
+import { ArmorPaddingWeightComponent } from './_components/combat-table/stat-components/armor-padding-weight/armor-padding-weight.component';
+import { ArmorPaddingSunderComponent } from './_components/combat-table/stat-components/armor-padding-sunder/armor-padding-sunder.component';
+import { ArmorWeightComponent } from './_components/combat-table/stat-components/armor-weigh/armor-weight.component';
+import { DamageHeadComponent } from './_components/combat-table/stat-components/damage-head/damage-head.component';
+import { DamageTorsoComponent } from './_components/combat-table/stat-components/damage-torso/damage-torso.component';
+import { DamageRightArmComponent } from './_components/combat-table/stat-components/damage-right-arm/damage-right-arm.component';
+import { DamageLeftArmComponent } from './_components/combat-table/stat-components/damage-left-arm/damage-left-arm.component';
+import { DamageRightLegComponent } from './_components/combat-table/stat-components/damage-right-leg/damage-right-leg.component';
+import { DamageLeftLegComponent } from './_components/combat-table/stat-components/damage-left-leg/damage-left-leg.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +100,29 @@ import { RegisterComponent } from './_components/register/register.component';
     AddAdvantagesComponent,
     DisadvantagesComponent,
     AddDisadvantagesComponent,
+    CTableComponent,
+    CombatTableElementComponent,
+    CombatTableUserSelectComponent,
+    StatsComponent,
+    Stats2Component,
+    StatsPenaltyComponent,
+    StatsSkillsComponent,
+    StatsBonusComponent,
+    StatsSpentComponent,
+    StatsRollsComponent,
+    ArmorWeightComponent,
+    ArmorComponent,
+    ArmorCurrentComponent,
+    ArmorSunderComponent,
+    ArmorPaddingComponent,
+    ArmorPaddingWeightComponent,
+    ArmorPaddingSunderComponent,
+    DamageHeadComponent,
+    DamageTorsoComponent,
+    DamageRightArmComponent,
+    DamageLeftArmComponent,
+    DamageRightLegComponent,
+    DamageLeftLegComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,10 +146,20 @@ import { RegisterComponent } from './_components/register/register.component';
     MatCheckboxModule,
     MatGridListModule,
     MatSelectModule,
+    FormsModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatButtonToggleModule,
+    MatExpansionModule,
+    MatRadioModule,
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true
-  }],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AppHttpInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

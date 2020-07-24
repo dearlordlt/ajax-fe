@@ -1,0 +1,10 @@
+<div>
+  Create a new character:<input class="input_rounded" matInput (change)="onCharacterNameChanged($event)" [(ngModel)]="characterNameInput" type="text"  list="Char"/>
+    <datalist id="Char">
+      <label> 
+        <select>
+          <option *ngFor="let user of users" value="{{user.username}}">
+        </select>
+      </label>
+    </datalist>
+</div>

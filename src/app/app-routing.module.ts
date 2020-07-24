@@ -13,21 +13,21 @@ import { RangedWeaponsComponent } from './_components/ranged-weapons/ranged-weap
 import { SpellsComponent } from './_components/spells/spells.component';
 import { RegisterComponent } from './_components/register/register.component';
 import { BeastsComponent } from './_components/beasts/beasts.component';
-
+import { CTableComponent } from './_components/combat-table/combat-table/combat-table.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
   },
   {
     path: 'random-npc',
@@ -43,7 +43,7 @@ const routes: Routes = [
     path: 'admin',
     component: AdminComponent,
     canActivate: [AuthGuard],
-    data: { roles: [Role.Admin] }
+    data: { roles: [Role.Admin] },
   },
   {
     path: 'equipment/melee-weapons',
@@ -70,13 +70,18 @@ const routes: Routes = [
     component: SpellsComponent,
     canActivate: [AuthGuard],
   },
+  {
+    path: 'combat-table',
+    component: CTableComponent,
+    canActivate: [AuthGuard],
+  },
 
   // otherwise redirect to login
-  { path: '**', redirectTo: 'login' }
+  { path: '**', redirectTo: 'login' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
