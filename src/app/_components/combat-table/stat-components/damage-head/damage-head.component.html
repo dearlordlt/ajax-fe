@@ -1,0 +1,28 @@
+  <div class="div-text-left">
+    Trauma - Damage Head:
+  </div>
+  <div class="div-text-right">
+    <input class="input-width" [disabled]="!helpers.checkAuth(character.name)" type="number"
+      [(ngModel)]="character.dmgTH" />
+  </div>
+  <div class="div-text-left">
+    Bleed - Damage Head:
+  </div>
+  <div class="div-text-right">
+    <input class="input-width" [disabled]="!helpers.checkAuth(character.name)" type="number"
+      [(ngModel)]="character.dmgBH" />
+  </div>
+  <div class="div-text-left">
+    Critical - Damage Head:
+  </div>
+  <div class="div-text-right">
+    <input class="input-width" [disabled]="!helpers.checkAuth(character.name)" type="number"
+      [(ngModel)]="character.dmgCH" />
+  </div>
+  <div class="div-text-left">
+    Fire - Damage Head:
+  </div>
+  <div class="div-text-right">
+    <input class="input-width" [disabled]="!helpers.checkAuth(character.name)" type="number"
+      [(ngModel)]="character.dmgFH" />
+  </div>

@@ -1,0 +1,11 @@
+<div *ngIf="authenticationService.currentUserValue.role === 'ADMIN'">
+  <div class="div-one-line">
+    <app-combat-table-user-select (update)="updateCharacterName($event)" [users]="users"></app-combat-table-user-select>
+  </div>
+  <div class="div-one-line">
+    <button (click)="addElement()">add</button>
+  </div>
+</div>
+<div *ngFor="let character of charactersList">
+  <app-combat-table-element [character]="character" [show]="true"></app-combat-table-element>
+</div>

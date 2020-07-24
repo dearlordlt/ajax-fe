@@ -1,0 +1,28 @@
+<div class="div-text-left">
+  Trauma - Damage Left Arm:
+</div>
+<div class="div-text-right">
+  <input class="input-width" [disabled]="!helpers.checkAuth(character.name)" type="number"
+    [(ngModel)]="character.dmgTLA" />
+</div>
+<div class="div-text-left">
+  Bleed - Damage Left Arm:
+</div>
+<div class="div-text-right">
+  <input class="input-width" [disabled]="!helpers.checkAuth(character.name)" type="number"
+    [(ngModel)]="character.dmgBLA" />
+</div>
+<div class="div-text-left">
+  Critical - Damage Left Arm:
+</div>
+<div class="div-text-right">
+  <input class="input-width" [disabled]="!helpers.checkAuth(character.name)" type="number"
+    [(ngModel)]="character.dmgCLA" />
+</div>
+<div class="div-text-left">
+  Fire - Damage Left Arm:
+</div>
+<div class="div-text-right">
+  <input class="input-width" [disabled]="!helpers.checkAuth(character.name)" type="number"
+    [(ngModel)]="character.dmgFLA" />
+</div>

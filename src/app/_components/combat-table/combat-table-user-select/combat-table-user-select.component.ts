@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
+
 @Component({
   selector: 'app-combat-table-user-select',
   templateUrl: './combat-table-user-select.component.html',

@@ -14,6 +14,28 @@ export default class Character {
   vigorSpent = 0;
   toughness = 0;
   toughnessSpent = 0;
+  heroicTurns = 0;
+  heroicTurnsSpent = 0;
+  heroicTurnsMultiplier = 0;
+
+  maxMana = 0;
+  currentMana = 0;
+  manaSpent = 0;
+  manaReg = 0;
+  bonusMana = 0;
+
+  weaponSkill = 0;
+  shieldSkill = 0;
+  evadeSkill = 0;
+  shieldDef = 0;
+  defBonus = 0;
+  shieldHP = 0;
+  shieldDMG = 0;
+  shieldHPLeft = 0;
+
+  evade = 0;
+  attack = 0;
+  block = 0;
 
   headWeight = 0;
   breastWeight = 0;
@@ -36,6 +58,27 @@ export default class Character {
   rArmArmor = 0;
   lLegArmor = 0;
   rLegArmor = 0;
+
+  sunderHeadArmor = 0;
+  sunderBreastArmor = 0;
+  sunderLArmArmor = 0;
+  sunderRArmArmor = 0;
+  sunderLLegArmor = 0;
+  sunderRLegArmor = 0;
+
+  paddingHeadArmor = 0;
+  paddingBreastArmor = 0;
+  paddingLArmArmor = 0;
+  paddingRArmArmor = 0;
+  paddingLLegArmor = 0;
+  paddingRLegArmor = 0;
+
+  sunderPaddingHeadArmor = 0;
+  sunderPaddingBreastArmor = 0;
+  sunderPaddingLArmArmor = 0;
+  sunderPaddingRArmArmor = 0;
+  sunderPaddingLLegArmor = 0;
+  sunderPaddingRLegArmor = 0;
 
   encumbrance = 0;
   move = 0;
@@ -78,7 +121,12 @@ export default class Character {
   plusVigorCost = 0;
   penalty = 0;
 
-  constructor( name: string, _id: string) {
+  mainView: string;
+  collapseArmor: boolean;
+  showArmor: boolean;
+  showDamage: boolean;
+
+  constructor(name: string, _id: string) {
     this.name = name;
     this._id = _id;
   }

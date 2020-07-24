@@ -1,0 +1,42 @@
+<div class="div-text-left">
+  Athletics:
+</div>
+<div class="div-text-right">
+  <input class="input-width" [disabled]="!helpers.checkAuth(character.name)" type="number"
+    [(ngModel)]="character.athletics" />
+</div>
+<div class="div-text-left">
+  Mana Regen:
+</div>
+<div class="div-text-right">
+  <input class="input-width" [disabled]="!helpers.checkAuth(character.name)" type="number"
+    [(ngModel)]="character.manaReg" />
+</div>
+<div class="div-text-left">
+  Bonus Mana:
+</div>
+<div class="div-text-right">
+  <input class="input-width" [disabled]="!helpers.checkAuth(character.name)" type="number"
+    [(ngModel)]="character.bonusMana" />
+</div>
+<div class="div-text-left">
+  Bonus Vigor:
+</div>
+<div class="div-text-right">
+  <input class="input-width" [disabled]="!helpers.checkAuth(character.name)" type="number"
+    [(ngModel)]="character.vigorBonus" />
+</div>
+<div class="div-text-left">
+  Bonus Move:
+</div>
+<div class="div-text-right">
+  <input class="input-width" [disabled]="!helpers.checkAuth(character.name)" type="number"
+    [(ngModel)]="character.moveBonus" />
+</div>
+<div class="div-text-left">
+  Bonus Encumbrance:
+</div>
+<div class="div-text-right">
+  <input class="input-width" [disabled]="!helpers.checkAuth(character.name)" type="number"
+    [(ngModel)]="character.bonusEnc" />
+</div>

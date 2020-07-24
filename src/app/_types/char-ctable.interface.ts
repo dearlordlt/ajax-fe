@@ -1,4 +1,9 @@
-export interface ICharCTable extends Document {
+export interface CharCombatTable {
+  mainView: string;
+  collapseArmor: boolean;
+  showArmor: boolean;
+  showDamage: boolean;
+
   name: string;
   _id: string;
   str: number;
@@ -14,6 +19,28 @@ export interface ICharCTable extends Document {
   vigorSpent: number;
   toughness: number;
   toughnessSpent: number;
+  heroicTurns: number;
+  heroicTurnsSpent: number;
+  heroicTurnsMultiplier: number;
+
+  maxMana: number;
+  manaSpent: number;
+  manaReg: number;
+  bonusMana: number;
+  currentMana: number;
+
+  evade: number;
+  attack: number;
+  block: number;
+  defBonus: number;
+
+  weaponSkill: number;
+  shieldSkill: number;
+  shieldDef: number;
+  shieldHP: number;
+  shieldDMG: number;
+  shieldHPLeft: number;
+  evadeSkill: number;
 
   headWeight: number;
   breastWeight: number;

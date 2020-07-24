@@ -1,492 +1,265 @@
-<div class = "div-character-box">
-  Name: {{character.name}}
-  <div class="flexBox-container-main">
-    <div class="flexBox-item">
-      <div class="div-text-left">
-        STR:
-      </div>
-      <div class="div-text-left">
-        STA:
-      </div>
-      <div class="div-text-left">
-        DEX: 
-      </div>
-      <div class="div-text-left">
-        PER:
-      </div>
-      <div class="div-text-left">
-        REF:
-      </div>
-      <div class="div-text-left">
-        Will:
-      </div>
+<div class="div-container-border">
+  <div class="container-name">
+    <div class="div-text-center">
+      <b>{{character.name}}</b>
     </div>
-
-    <div class="flexBox-item-2">
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.str">
+    <div class="div-text-left">
+      <div class="radio-button">
+        Viewing options :
       </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.sta">
+      <div class="radio-button">
+        <input type="radio" (change)="changeState('fullView')" name="View Change">Full
       </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dex"> 
+      <div class="radio-button">
+        <input type="radio" (change)="changeState('midView')" name="View Change" checked>Compact
       </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.per"> 
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.ref">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.will"> 
-      </div>
-    </div>
-
-    <div class="flexBox-item">
-      <div class="div-text-left">
-        Vigor Spent:
-      </div> 
-      <div class="div-text-left">
-        Shield Weight:
-      </div> 
-      <div class="div-text-left">
-        Weapon Weight:
-      </div> 
-      <div class="div-text-left">
-        Bonus Vigor:
-      </div> 
-      <div class="div-text-left">
-        Bonus Move:
-      </div> 
-      <div class="div-text-left">
-        Bonus Encumbrance:
-      </div> 
-    </div>
-
-    <div class="flexBox-item-2">
-      <div>
-        <input class="input-width" type="number" [(ngModel)]= "character.vigorSpent">
-      </div> 
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.shieldWeight">
-      </div> 
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.weaponWeight">
-      </div> 
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.vigorBonus">
-      </div> 
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.moveBonus">
-      </div> 
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.bonusEnc">
-      </div> 
-    </div>
-
-    <div class="flexBox-item">
-      <div class="div-text-left">
-        Move: 
-      </div>
-      <div class="div-text-left">
-        Max Vigor: 
-      </div>
-      <div class="div-text-left">
-        Penalty: 
-      </div>
-      <div class="div-text-left">
-        Toughness: 
-      </div>
-      <div class="div-text-left">
-        HP: 
-      </div>
-      <div class="div-text-left">
-        Encumbrance: 
-      </div>
-    </div>
-
-    <div class="flexBox-item-2">
-      <div class="div-box">
-        {{character.move}}
-      </div>
-      <div class="div-box">
-        {{character.maxVigor}}
-      </div>
-      <div class="div-box">
-        {{character.penalty}}
-      </div>
-      <div class="div-box">
-        {{character.toughness}}
-      </div>
-      <div class="div-box">
-        {{character.hp}}
-      </div>
-      <div class="div-box">
-        {{character.encumbrance}}
-      </div>
-    </div>
-
-    <div class="flexBox-item">
-      <div class="div-text-left">
-        HP left:
-      </div>
-      <div class="div-text-left">
-        (-Att):
-      </div>
-      <div class="div-text-left">
-        (-Def):
-      </div>
-      <div class="div-text-left">
-        (-Move):
-      </div>
-      <div class="div-text-left">
-        (+Vg Cost):
-      </div>
-    </div>
-
-    <div class="flexBox-item-2">
-      <div class="div-box">
-        {{character.hpLeft}}
-      </div>
-      <div class="div-box">
-        {{character.minusAtt}}
-      </div>
-      <div class="div-box">
-        {{character.minusDef}}
-      </div>
-      <div class="div-box">
-        {{character.minusMove}}
-      </div>
-      <div class="div-box">
-        {{character.plusVigorCost}}
-      </div>
-    </div>
-
-    <div class="flexBox-item">
-      <div class="div-text-left">
-        Head Armor Weight:
-      </div>
-      <div class="div-text-left">
-        Body Armor Weight:
-      </div>
-      <div class="div-text-left">
-        Left Armor Arm Weight:
-      </div>
-      <div class="div-text-left">
-        Right Armor Arm Weight:
-      </div>
-      <div class="div-text-left">
-        Left Armor Leg Weight:
-      </div>
-      <div class="div-text-left"> 
-        Right Armor Leg Weight:
-      </div>
-    </div>
-
-    <div class="flexBox-item-2">
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.headWeight">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.breastWeight">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.lArmWeight">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.rArmWeight">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.lLegWeight">
-      </div>
-      <div> 
-        <input class="input-width" type="number" [(ngModel)] = "character.rLegWeight">
-      </div>
-    </div>
-
-    <div class="flexBox-item">
-      <div class="div-text-left">
-        Padding Head Weight:
-      </div>
-      <div class="div-text-left">
-        Padding Body Weight:
-      </div>
-      <div class="div-text-left">
-        Padding Left Arm Weight:
-      </div>
-      <div class="div-text-left">
-        Padding Right Arm Weight:
-      </div>
-      <div class="div-text-left">
-        Padding Left Leg Weight:
-      </div>
-      <div class="div-text-left"> 
-        Padding Right Leg Weight:
-      </div>
-    </div>
-
-    <div class="flexBox-item-2">
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.pHeadWeight">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.pBreastWeight">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.pLArmWeight">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.pRArmWeight">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.pLLegWeight">
-      </div>
-      <div> 
-        <input class="input-width" type="number" [(ngModel)] = "character.pRLegWeight">
-      </div>
-    </div>
-
-    <div class="flexBox-item">
-      <div class="div-text-left">
-        Armor Head:
-      </div>
-      <div class="div-text-left">
-        Armor Body:
-      </div>
-      <div class="div-text-left">
-        Armor Left Arm:
-      </div>
-      <div class="div-text-left">
-        Armor Right Arm:
-      </div>
-      <div class="div-text-left">
-        Armor Left Leg:
-      </div>
-      <div class="div-text-left"> 
-        Armor Right Leg:
-      </div>
-    </div>
-
-    <div class="flexBox-item-2">
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.headArmor">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.breastArmor">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.lArmArmor">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.rArmArmor">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.lLegArmor">
-      </div>
-      <div> 
-        <input class="input-width" type="number" [(ngModel)] = "character.rLegArmor">
+      <div class="radio-button">
+        <input type="radio" (change)="changeState('minView')" name="View Change">Min
       </div>
     </div>
   </div>
 
-  <div class="flexBox-container-main">
-    <div class="flexBox-item-3">
+
+  <div class="container">
+
+    <div class="div-mid-hp" *ngIf="character.mainView === 'minView'">
       <div class="div-text-left">
-        <B>Trauma Damage:</B>
+        HP:
       </div>
-      <div class="div-text-left">
-        <B>Bleed Damage:</B>
-      </div>
-      <div class="div-text-left">
-        <B>Critical Damage:</B>
-      </div>
-      <div class="div-text-left">
-        <B>Fire Damage:</B>
+      <div class="div-box">
+        {{ character.hpLeft }}
       </div>
     </div>
-    
-    <div class="flexBox-item-3">
-      <div class="div-text-left-2">
-        Head:
+    <div class="div-mid-mana" *ngIf="character.mainView === 'minView'">
+      <div class="div-text-left">
+        Mana:
       </div>
-      <div class="div-text-left-2">
-        Head:
-      </div>
-      <div class="div-text-left-2">
-        Head:
-      </div>
-      <div class="div-text-left-2">
-        Head:
+      <div class="div-box">
+        {{ character.currentMana }}
       </div>
     </div>
-    
-    <div class="flexBox-item-2">
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgTH">
+    <div class="div-mid-attack" *ngIf="character.mainView === 'minView'">
+      <div class="div-text-left">
+        (-Att):
       </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgBH">
+      <div class="div-box">
+        {{ character.minusAtt }}
       </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgCH">
+    </div>
+    <div class="div-mid-defece" *ngIf="character.mainView === 'minView'">
+      <div class="div-text-left">
+        (-Def):
       </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgFH">
+      <div class="div-box">
+        {{ character.minusDef }}
+      </div>
+    </div>
+    <div class="div-mid-vig-penalty" *ngIf="character.mainView === 'minView'">
+      <div class="div-text-left">
+        Vigor Penalty:
+      </div>
+      <div class="div-box">
+        {{ character.penalty }}
       </div>
     </div>
 
-    <div class="flexBox-item-3">
-      <div class="div-text-left">
-        Body:
+    <div class="div-mid-1" *ngIf="character.mainView === 'midView'">
+      <app-stats2 [character]="character"> </app-stats2>
+    </div>
+
+    <div class="div-mid-3" *ngIf="character.mainView === 'midView' ">
+      <app-stats-penalty [character]="character">
+      </app-stats-penalty>
+    </div>
+
+    <div class="div-mid-5" *ngIf="character.mainView === 'midView' ">
+      <app-stats-rolls [character]="character"></app-stats-rolls>
+    </div>
+
+    <div class="div-mid-4" *ngIf="character.mainView === 'midView' ">
+      <app-stats-spent [character]="character"></app-stats-spent>
+    </div>
+
+    <div class="update-button" *ngIf="character.mainView === 'midView' && helpers.checkAuth(character.name)">
+      <button type=submit mat-raised-button color="primary" (click)="updateTable()">
+        Update
+      </button>
+    </div>
+
+    <div *ngIf="character.mainView === 'fullView'" class="div-stats">
+      <app-stats [character]="character"></app-stats>
+    </div>
+
+    <div class="div-mid-1" *ngIf="character.mainView === 'fullView' ">
+      <app-stats2 [character]="character">
+      </app-stats2>
+    </div>
+
+    <div class="div-mid-3" *ngIf="character.mainView === 'fullView' ">
+      <app-stats-penalty [character]="character">
+      </app-stats-penalty>
+    </div>
+
+    <div class="div-mid-2" *ngIf="character.mainView === 'fullView' ">
+      <app-stats-rolls [character]="character">
+      </app-stats-rolls>
+    </div>
+
+
+    <div class="div-mid-4" *ngIf="character.mainView === 'fullView' ">
+      <app-stats-spent [character]="character"></app-stats-spent>
+    </div>
+
+    <div class="div-mid-5" *ngIf="character.mainView === 'fullView' ">
+      <app-stats-bonus [character]="character"></app-stats-bonus>
+    </div>
+
+
+    <div class="div-mid-6" *ngIf="character.mainView === 'fullView' ">
+      <app-stats-skills [character]="character"></app-stats-skills>
+    </div>
+
+    <div *ngIf="character.mainView === 'fullView' && helpers.checkAuth(character.name)">
+      <button type=submit mat-raised-button color="primary" (click)="updateTable()">
+        Update
+      </button>
+    </div>
+  </div>
+
+
+  <!-- <<==Armor -->
+
+  <div class="container-name">
+    <div class="div-middle">
+      <button (click)="showArmor = !showArmor">{{showArmor ? "Hide Armor" : "Show Armor"}}</button>
+    </div>
+  </div>
+
+  <div class="container-armor">
+    <div class="div-armor-1" *ngIf="!showArmor">
+      <div class="div-text-left-armor">
+        Current Head Armor:
       </div>
-      <div class="div-text-left">
-        Body:
+      <div class="div-box">
+        {{character.headArmor + character.paddingHeadArmor - character.sunderHeadArmor - character.sunderPaddingHeadArmor}}
       </div>
-      <div class="div-text-left">
-        Body:
+    </div>
+    <div class="div-armor-1" *ngIf="!showArmor">
+      <div class="div-text-left-armor">
+        Current Chest Armor:
       </div>
-      <div class="div-text-left">
-        Body:
+      <div class="div-box">
+        {{character.breastArmor + character.paddingBreastArmor - character.sunderBreastArmor - character.sunderPaddingBreastArmor}}
+      </div>
+    </div>
+    <div class="div-armor-1" *ngIf="!showArmor">
+      <div class="div-text-left-armor">
+        Current Left Arm Armor:
+      </div>
+      <div class="div-box">
+        {{character.lArmArmor + character.paddingLArmArmor - character.sunderLArmArmor - character.sunderPaddingLArmArmor}}
+      </div>
+    </div>
+    <div class="div-armor-1" *ngIf="!showArmor">
+      <div class="div-text-left-armor">
+        Current Right Arm Armor:
+      </div>
+      <div class="div-box">
+        {{character.rArmArmor + character.paddingRArmArmor - character.sunderRArmArmor - character.sunderPaddingRArmArmor}}
+      </div>
+    </div>
+    <div class="div-armor-1" *ngIf="!showArmor">
+      <div class="div-text-left-armor">
+        Current Left Leg Armor:
+      </div>
+      <div class="div-box">
+        {{character.lLegArmor + character.paddingLLegArmor - character.sunderLLegArmor - character.sunderPaddingLLegArmor}}
+      </div>
+    </div>
+    <div class="div-armor-1" *ngIf="!showArmor">
+      <div class="div-text-left-armor">
+        Current Right Leg Armor:
+      </div>
+      <div class="div-box">
+        {{character.rLegArmor + character.paddingRLegArmor - character.sunderRLegArmor - character.sunderPaddingRLegArmor}}
       </div>
     </div>
 
-    <div class="flexBox-item-2">
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgTB">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgBB">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgCB">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgFB">
-      </div>
+    <div class="div-mid-mana" *ngIf="showArmor">
+      <app-armor-current [character]="character"></app-armor-current>
     </div>
 
-    <div class="flexBox-item-3">
-      <div class="div-text-left">
-        Left Arm:
-      </div>
-      <div class="div-text-left">
-        Left Arm:
-      </div>
-      <div class="div-text-left">
-        Left Arm:
-      </div>
-      <div class="div-text-left">
-        Left Arm:
-      </div>
+    <div class="div-armor-1" *ngIf="showArmor">
+      <app-armor-weight [character]="character"></app-armor-weight>
     </div>
 
-    <div class="flexBox-item-2">
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgTLA">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgBLA">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgCLA">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgFLA">
-      </div>
+    <div class="div-armor-2" *ngIf="showArmor">
+      <app-armor [character]="character"></app-armor>
     </div>
 
-    <div class="flexBox-item-3">
-      <div class="div-text-left">
-        Right Arm
-      </div>
-      <div class="div-text-left">
-        Right Arm
-      </div>
-      <div class="div-text-left">
-        Right Arm
-      </div>
-      <div class="div-text-left">
-        Right Arm
-      </div>
+    <div class="div-armor-sunder" *ngIf="showArmor">
+      <app-armor-sunder [character]="character"></app-armor-sunder>
     </div>
 
-    <div class="flexBox-item-2">
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgTRA">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgBRA">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgCRA">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgFRA">
-      </div>
+
+    <div class="div-armor-3" *ngIf="showArmor">
+      <app-armor-padding-weight [character]="character"></app-armor-padding-weight>
     </div>
 
-    <div class="flexBox-item-3">
-      <div class="div-text-left">
-        Left Leg:
-      </div>
-      <div class="div-text-left">
-        Left Leg:
-      </div>
-      <div class="div-text-left">
-        Left Leg:
-      </div>
-      <div class="div-text-left">
-        Left Leg:
-      </div>
+    <div class="div-armor-4" *ngIf="showArmor">
+      <app-armor-padding [character]="character"></app-armor-padding>
     </div>
 
-    <div class="flexBox-item-2">
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgTLL">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgBLL">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgCLL">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgFLL">
-      </div>
+    <div class="div-armor-sunder" *ngIf="showArmor">
+      <app-armor-padding-sunder [character]="character"></app-armor-padding-sunder>
     </div>
 
-    <div class="flexBox-item-3">
-      <div class="div-text-left">
-        Right Leg:
-      </div>
-      <div class="div-text-left">
-        Right Leg:
-      </div>
-      <div class="div-text-left">
-        Right Leg:
-      </div>
-      <div class="div-text-left">
-        Right Leg:
-      </div>
+    <div *ngIf="showArmor && helpers.checkAuth(character.name)">
+      <button type=submit mat-raised-button color="primary" (click)="updateTable()">
+        Update
+      </button>
     </div>
 
-    <div class="flexBox-item-2">
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgTRL">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgBRL">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgCRL">
-      </div>
-      <div>
-        <input class="input-width" type="number" [(ngModel)] = "character.dmgFRL">
-      </div>
+  </div>
+
+  <!-- <<==Damage -->
+
+  <div class="container-name">
+    <div class="div-middle">
+      <button (click)="showDamage = !showDamage">{{showDamage ? "Hide Damage" : "Show Damage"}}</button>
+    </div>
+  </div>
+
+  <div *ngIf="showDamage" class="container-Dmg">
+    <div class="div-damage">
+      <app-damage-head [character]="character"></app-damage-head>
     </div>
 
-    <div class="flexBox-item-2">
-      <button mat-raised-button color="primary" (click)="updateTable()">Update</button>
+    <div class="div-damage">
+      <app-damage-torso [character]="character"></app-damage-torso>
     </div>
+
+    <div class="div-damage">
+      <app-damage-left-arm [character]="character"></app-damage-left-arm>
+    </div>
+
+    <div class="div-damage">
+      <app-damage-right-arm [character]="character"></app-damage-right-arm>
+
+    </div>
+
+    <div class="div-damage">
+      <app-damage-left-leg [character]="character"></app-damage-left-leg>
+    </div>
+
+    <div class="div-damage">
+      <app-damage-right-leg [character]="character"></app-damage-right-leg>
+
+    </div>
+    <div class="update-button" *ngIf="!showArmor && helpers.checkAuth(character.name)">
+      <button type=submit mat-raised-button color="primary" (click)="updateTable()">
+        Update
+      </button>
+    </div>
+  </div>
 </div>

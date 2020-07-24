@@ -1,0 +1,42 @@
+<div class="div-text-left">
+  Weapon Skill:
+</div>
+<div class="div-text-right">
+  <input class="input-width" [disabled]="!helpers.checkAuth(character.name)" type="number"
+    [(ngModel)]="character.weaponSkill" />
+</div>
+<div class="div-text-left">
+  Evade Skill:
+</div>
+<div class="div-text-right">
+  <input class="input-width" [disabled]="!helpers.checkAuth(character.name)" type="number"
+    [(ngModel)]="character.evadeSkill" />
+</div>
+<div class="div-text-left">
+  Shield Skill:
+</div>
+<div class="div-text-right">
+  <input class="input-width" [disabled]="!helpers.checkAuth(character.name)" type="number"
+    [(ngModel)]="character.shieldSkill" />
+</div>
+<div class="div-text-left">
+  Shield Defence:
+</div>
+<div class="div-text-right">
+  <input class="input-width" [disabled]="!helpers.checkAuth(character.name)" type="number"
+    [(ngModel)]="character.shieldDef" />
+</div>
+<div class="div-text-left">
+  Shield HP:
+</div>
+<div class="div-text-right">
+  <input class="input-width" [disabled]="!helpers.checkAuth(character.name)" type="number"
+    [(ngModel)]="character.shieldHP" />
+</div>
+<div class="div-text-left">
+  Shield Damage Taken:
+</div>
+<div class="div-text-right">
+  <input class="input-width" [disabled]="!helpers.checkAuth(character.name)" type="number"
+    [(ngModel)]="character.shieldDMG" />
+</div>

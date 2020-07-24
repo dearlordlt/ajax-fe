@@ -31,9 +31,4 @@ export class TableComponent implements OnInit {
     this.editCommandsService.dispatch(type, col);
   }
 
-  get isAdmin(): boolean {
-    return this.authService.currentUserValue.role === 'ADMIN';
-  }
-
 }
-  
