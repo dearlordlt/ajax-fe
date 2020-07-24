@@ -15,6 +15,7 @@ import { Helpers } from 'src/app/_helpers/helpers';
 export class CombatTableElementComponent implements OnInit {
   @Input() character: CharCombatTable;
   @Input() show = true;
+  view = 'midView';
 
   constructor(
     private readonly calculationsService: CharCalcService,
@@ -38,6 +39,6 @@ export class CombatTableElementComponent implements OnInit {
   }
 
   changeState(viewType: string) {
-    this.character.mainView = viewType;
+    this.view = viewType;
   }
 }

@@ -22,7 +22,7 @@
 
   <div class="container">
 
-    <div class="div-mid-hp" *ngIf="character.mainView === 'minView'">
+    <div class="div-mid-hp" *ngIf="view === 'minView'">
       <div class="div-text-left">
         HP:
       </div>
@@ -30,7 +30,7 @@
         {{ character.hpLeft }}
       </div>
     </div>
-    <div class="div-mid-mana" *ngIf="character.mainView === 'minView'">
+    <div class="div-mid-mana" *ngIf="view === 'minView'">
       <div class="div-text-left">
         Mana:
       </div>
@@ -38,7 +38,7 @@
         {{ character.currentMana }}
       </div>
     </div>
-    <div class="div-mid-attack" *ngIf="character.mainView === 'minView'">
+    <div class="div-mid-attack" *ngIf="view === 'minView'">
       <div class="div-text-left">
         (-Att):
       </div>
@@ -46,7 +46,7 @@
         {{ character.minusAtt }}
       </div>
     </div>
-    <div class="div-mid-defece" *ngIf="character.mainView === 'minView'">
+    <div class="div-mid-defece" *ngIf="view === 'minView'">
       <div class="div-text-left">
         (-Def):
       </div>
@@ -54,7 +54,7 @@
         {{ character.minusDef }}
       </div>
     </div>
-    <div class="div-mid-vig-penalty" *ngIf="character.mainView === 'minView'">
+    <div class="div-mid-vig-penalty" *ngIf="view === 'minView'">
       <div class="div-text-left">
         Vigor Penalty:
       </div>
@@ -63,63 +63,63 @@
       </div>
     </div>
 
-    <div class="div-mid-1" *ngIf="character.mainView === 'midView'">
+    <div class="div-mid-1" *ngIf="view === 'midView'">
       <app-stats2 [character]="character"> </app-stats2>
     </div>
 
-    <div class="div-mid-3" *ngIf="character.mainView === 'midView' ">
+    <div class="div-mid-3" *ngIf="view === 'midView' ">
       <app-stats-penalty [character]="character">
       </app-stats-penalty>
     </div>
 
-    <div class="div-mid-5" *ngIf="character.mainView === 'midView' ">
+    <div class="div-mid-5" *ngIf="view === 'midView' ">
       <app-stats-rolls [character]="character"></app-stats-rolls>
     </div>
 
-    <div class="div-mid-4" *ngIf="character.mainView === 'midView' ">
+    <div class="div-mid-4" *ngIf="view === 'midView' ">
       <app-stats-spent [character]="character"></app-stats-spent>
     </div>
 
-    <div class="update-button" *ngIf="character.mainView === 'midView' && helpers.checkAuth(character.name)">
+    <div class="update-button" *ngIf="view === 'midView' && helpers.checkAuth(character.name)">
       <button type=submit mat-raised-button color="primary" (click)="updateTable()">
         Update
       </button>
     </div>
 
-    <div *ngIf="character.mainView === 'fullView'" class="div-stats">
+    <div *ngIf="view === 'fullView'" class="div-stats">
       <app-stats [character]="character"></app-stats>
     </div>
 
-    <div class="div-mid-1" *ngIf="character.mainView === 'fullView' ">
+    <div class="div-mid-1" *ngIf="view === 'fullView' ">
       <app-stats2 [character]="character">
       </app-stats2>
     </div>
 
-    <div class="div-mid-3" *ngIf="character.mainView === 'fullView' ">
+    <div class="div-mid-3" *ngIf="view === 'fullView' ">
       <app-stats-penalty [character]="character">
       </app-stats-penalty>
     </div>
 
-    <div class="div-mid-2" *ngIf="character.mainView === 'fullView' ">
+    <div class="div-mid-2" *ngIf="view === 'fullView' ">
       <app-stats-rolls [character]="character">
       </app-stats-rolls>
     </div>
 
 
-    <div class="div-mid-4" *ngIf="character.mainView === 'fullView' ">
+    <div class="div-mid-4" *ngIf="view === 'fullView' ">
       <app-stats-spent [character]="character"></app-stats-spent>
     </div>
 
-    <div class="div-mid-5" *ngIf="character.mainView === 'fullView' ">
+    <div class="div-mid-5" *ngIf="view === 'fullView' ">
       <app-stats-bonus [character]="character"></app-stats-bonus>
     </div>
 
 
-    <div class="div-mid-6" *ngIf="character.mainView === 'fullView' ">
+    <div class="div-mid-6" *ngIf="view === 'fullView' ">
       <app-stats-skills [character]="character"></app-stats-skills>
     </div>
 
-    <div *ngIf="character.mainView === 'fullView' && helpers.checkAuth(character.name)">
+    <div *ngIf="view === 'fullView' && helpers.checkAuth(character.name)">
       <button type=submit mat-raised-button color="primary" (click)="updateTable()">
         Update
       </button>

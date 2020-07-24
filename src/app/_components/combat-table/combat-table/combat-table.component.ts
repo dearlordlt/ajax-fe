@@ -65,8 +65,9 @@ export class CTableComponent implements OnInit, OnDestroy {
             if (
               el.name !== this.authenticationService.currentUserValue.username
             ) {
-              this.charactersList[index].map((el) =>
-                el.data.find((toFind) => toFind.name === el.name)
+              Object.assign(
+                this.charactersList[index],
+                data.find((toFind) => toFind.name === el.name)
               );
             }
           });
